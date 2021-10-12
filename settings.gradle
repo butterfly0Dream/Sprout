@@ -3,6 +3,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        //cookie持久化jar包 添加以下语句
+        maven { url "https://jitpack.io" }
     }
 }
 rootProject.name = "Sprout"

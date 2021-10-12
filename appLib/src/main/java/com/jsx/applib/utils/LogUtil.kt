@@ -50,4 +50,8 @@ object LogUtil {
         }
     }
 
+    fun printStackTrace(t: Throwable){
+        t.printStackTrace()
+    }
+
 }

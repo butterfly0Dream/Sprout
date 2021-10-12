@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Sprout" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -12,5 +12,19 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:navigationBarColor">#ffffff</item>
+
+        <item name="main_bg_1">#ffffff</item>
+        <item name="main_bg_2">#EFEFEF</item>
+        <item name="main_bg_3">#CACACA</item>
+
+        <item name="theme_color_1">#333333</item>
+        <item name="theme_color_2">#666666</item>
+        <item name="theme_color_3">#999999</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme">
+        <!--禁用窗口的预览动画-->
+        <item name="android:windowDisablePreview">true</item>
     </style>
 </resources>
