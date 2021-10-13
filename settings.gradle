@@ -5,6 +5,7 @@ dependencyResolutionManagement {
         mavenCentral()
         //cookie持久化jar包 添加以下语句
         maven { url "https://jitpack.io" }
+        gradlePluginPortal()
     }
 }
 rootProject.name = "Sprout"

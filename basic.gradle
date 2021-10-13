@@ -1,5 +1,4 @@
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
@@ -38,9 +37,8 @@ android {
         }
     }
 
-    dataBinding {
-        //noinspection DataBindingWithoutKapt
-        enabled = true
+    buildFeatures {
+        dataBinding true
     }
 
 }
