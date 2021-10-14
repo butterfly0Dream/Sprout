@@ -12,9 +12,10 @@
         tools:context=".ui.main.mine.MineFragment">
 
         <TextView
+            android:id="@+id/tv_username"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="mine" />
+            android:text="登录" />
 
     </FrameLayout>
 </layout>

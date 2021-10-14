@@ -21,6 +21,8 @@
         <item name="theme_color_1">#333333</item>
         <item name="theme_color_2">#666666</item>
         <item name="theme_color_3">#999999</item>
+
+        <item name="division_line">#EDEDED</item>
     </style>
 
     <style name="SplashTheme" parent="AppTheme">

@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.jsx.applib.BaseApp
 import com.jsx.applib.utils.StatusUtils
 
 /**
@@ -14,6 +15,7 @@ import com.jsx.applib.utils.StatusUtils
  */
 abstract class BaseVmActivity : AppCompatActivity() {
     private var mActivityProvider: ViewModelProvider? = null
+    private var mApplicationProvider: ViewModelProvider? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +25,16 @@ abstract class BaseVmActivity : AppCompatActivity() {
         initViewModel()
         observe()
         init(savedInstanceState)
+    }
+
+    /**
+     * 通过baseApp获取viewModel，跟随application生命周期
+     */
+    protected fun <T : ViewModel?> getApplicationViewModel(modelClass: Class<T>): T {
+        if (mApplicationProvider == null) {
+            mApplicationProvider = ViewModelProvider(BaseApp.getContext() as BaseApp)
+        }
+        return mApplicationProvider!!.get(modelClass)
     }
 
     /**

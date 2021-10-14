@@ -1,5 +1,7 @@
 package com.jsx.applib.common
 
+import android.util.Log
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -35,4 +37,22 @@ fun ViewPager2.doSelected(selected: (Int) -> Unit) {
             selected.invoke(position)
         }
     })
+}
+
+/**
+ * 防止重复点击
+ * @param interval 重复间隔
+ * @param onClick  事件响应
+ */
+// 所有的view是共享这个值的，所以连续点击不同view，后面的也不会响应
+var lastTime = 0L
+fun View.clickNoRepeat(interval: Long = 400, onClick: (View) -> Unit) {
+    setOnClickListener {
+        val currentTime = System.currentTimeMillis()
+        if (lastTime != 0L && (currentTime - lastTime < interval)) {
+            return@setOnClickListener
+        }
+        lastTime = currentTime
+        onClick(it)
+    }
 }

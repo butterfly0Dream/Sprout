@@ -1,8 +1,9 @@
 package com.jsx.sprout.http
 
 import com.jsx.sprout.bean.ArticleBean
-import retrofit2.http.GET
-import retrofit2.http.Path
+import com.jsx.sprout.ui.main.home.BannerBean
+import com.jsx.sprout.ui.login.UserBean
+import retrofit2.http.*
 
 /**
  * Author: JackPan
@@ -16,4 +17,39 @@ interface ApiService {
      */
     @GET("/article/list/{page}/json")
     suspend fun getHomeList(@Path("page") pageNo: Int): ApiResponse<ArticleBean>
+
+    /**
+     * 获取首页置顶文章数据
+     */
+    @GET("/article/top/json")
+    suspend fun getTopList(): ApiResponse<MutableList<ArticleBean.DatasBean>>
+
+    /**
+     * banner
+     */
+    @GET("/banner/json")
+    suspend fun getBanner(): ApiResponse<MutableList<BannerBean>>
+
+    /**
+     * 登录
+     */
+    @FormUrlEncoded
+    @POST("/user/login")
+    suspend fun login(@Field("username") username: String,
+                      @Field("password") password: String): ApiResponse<UserBean>
+
+    /**
+     * 退出
+     */
+    @GET("/user/logout/json")
+    suspend fun logout():ApiResponse<Any>
+
+    /**
+     * 注册
+     */
+    @FormUrlEncoded
+    @POST("/user/register")
+    suspend fun register(@Field("username")username: String,
+                         @Field("password")password: String,
+                         @Field("repassword")repassword: String) : ApiResponse<Any>
 }

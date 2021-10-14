@@ -1,5 +1,6 @@
 package com.jsx.applib.base
 
+import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.jsx.applib.BaseApp
 
 /**
  * Author: JackPan
@@ -24,17 +26,18 @@ abstract class BaseVmFragment<BD : ViewDataBinding> : Fragment() {
     /**
      * 开放给外部使用
      */
-    lateinit var mContext: Context
-    lateinit var mActivity: AppCompatActivity
-    private var fragmentProvider: ViewModelProvider? = null
-    private var activityProvider: ViewModelProvider? = null
+    lateinit var ctx: Context
+    lateinit var activity: AppCompatActivity
+    private var mFragmentProvider: ViewModelProvider? = null
+    private var mActivityProvider: ViewModelProvider? = null
+    private var mApplicationProvider: ViewModelProvider? = null
     protected lateinit var binding: BD
     private var mBinding: ViewDataBinding? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        mContext = context
-        mActivity = context as AppCompatActivity
+        ctx = context
+        activity = context as AppCompatActivity
         // 必须要在Activity与Fragment绑定后，因为如果Fragment可能获取的是Activity中ViewModel
         // 必须在onCreateView之前初始化viewModel，因为onCreateView中需要通过ViewModel与DataBinding绑定
         initViewModel()
@@ -124,25 +127,34 @@ abstract class BaseVmFragment<BD : ViewDataBinding> : Fragment() {
 
     }
 
+    /**
+     * 通过baseApp获取viewModel，跟随application生命周期
+     */
+    protected fun <T : ViewModel?> getApplicationViewModel(modelClass: Class<T>): T {
+        if (mApplicationProvider == null) {
+            mApplicationProvider = ViewModelProvider(BaseApp.getContext() as BaseApp)
+        }
+        return mApplicationProvider!!.get(modelClass)
+    }
 
     /**
      * 通过activity获取viewModel，跟随activity生命周期
      */
     protected fun <T : ViewModel?> getActivityViewModel(modelClass: Class<T>): T {
-        if (activityProvider == null) {
-            activityProvider = ViewModelProvider(mActivity)
+        if (mActivityProvider == null) {
+            mActivityProvider = ViewModelProvider(activity)
         }
-        return activityProvider!!.get(modelClass)
+        return mActivityProvider!!.get(modelClass)
     }
 
     /**
      * 通过fragment获取viewModel，跟随fragment生命周期
      */
     protected open fun <T : ViewModel?> getFragmentViewModel(modelClass: Class<T>): T {
-        if (fragmentProvider == null) {
-            fragmentProvider = ViewModelProvider(this)
+        if (mFragmentProvider == null) {
+            mFragmentProvider = ViewModelProvider(this)
         }
-        return fragmentProvider!!.get(modelClass)
+        return mFragmentProvider!!.get(modelClass)
     }
 
     /**

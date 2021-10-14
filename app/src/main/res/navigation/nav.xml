@@ -2,14 +2,26 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/main_fragment"
-    android:id="@+id/nav">
+    android:id="@+id/nav"
+    app:startDestination="@id/main_fragment">
 
     <fragment
         android:id="@+id/main_fragment"
         android:name="com.jsx.sprout.ui.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main">
+
+        <!--登录-->
+        <action
+            android:id="@+id/action_main_fragment_to_login_fragment"
+            app:destination="@+id/login_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.jsx.sprout.ui.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
     </fragment>
 
 </navigation>

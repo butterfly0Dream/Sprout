@@ -20,6 +20,10 @@
         <item name="theme_color_1">#BDBDBD</item>
         <item name="theme_color_2">#939393</item>
         <item name="theme_color_3">#737272</item>
+
+        <item name="division_line">#424242</item>
+
+        <item name="android:navigationBarColor">#ffffff</item>
     </style>
 
     <style name="SplashTheme" parent="AppTheme">

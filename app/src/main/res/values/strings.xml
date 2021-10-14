@@ -5,4 +5,10 @@
 
     <string name="tab_home">首页</string>
     <string name="tab_mine">我的</string>
+    
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="hint_username">请输入账号</string>
+    <string name="hint_password">请输入密码</string>
+    <string name="not_login">暂不登录</string>
 </resources>
