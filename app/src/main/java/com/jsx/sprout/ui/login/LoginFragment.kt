@@ -43,7 +43,7 @@ class LoginFragment : BaseVmFragment<FragmentLoginBinding>() {
 
     override fun observe() {
         loginVM.loginLiveData.observe(this, {
-            toast("登录成功")
+            toast(getString(R.string.login_success))
             nav().navigateUp()
             mEvent.loginState.value = true
         })
@@ -55,6 +55,9 @@ class LoginFragment : BaseVmFragment<FragmentLoginBinding>() {
 
     override fun onClick() {
         super.onClick()
+        binding.tvRegister.clickNoRepeat {
+            nav().navigate(R.id.action_login_fragment_to_register_fragment)
+        }
         binding.ivClear.clickNoRepeat {
             loginVM.username.set("")
         }
@@ -64,11 +67,11 @@ class LoginFragment : BaseVmFragment<FragmentLoginBinding>() {
         }
         binding.btnLogin.clickNoRepeat {
             if (loginVM.username.get()!!.isEmpty()){
-                toast("请填写用户名")
+                toast(getString(R.string.common_check_username))
                 return@clickNoRepeat
             }
             if (loginVM.password.get()!!.isEmpty()){
-                toast("请填写密码")
+                toast(getString(R.string.common_check_pwd))
                 return@clickNoRepeat
             }
             //关闭软键盘
@@ -82,12 +85,8 @@ class LoginFragment : BaseVmFragment<FragmentLoginBinding>() {
     }
 
     private fun login(){
-//        setViewStatus(false)
-//        loginVM.login()
-
-        toast("登录成功")
-        nav().navigateUp()
-        mEvent.loginState.value = true
+        setViewStatus(false)
+        loginVM.login()
     }
 
     /**

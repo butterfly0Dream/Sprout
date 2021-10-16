@@ -22,6 +22,16 @@
         android:name="com.jsx.sprout.ui.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_login_fragment_to_register_fragment"
+            app:destination="@+id/register_fragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/register_fragment"
+        android:name="com.jsx.sprout.ui.register.RegisterFragment"
+        android:label="RegisterFragment"
+        tools:layout="@layout/fragment_register"></fragment>
 
 </navigation>

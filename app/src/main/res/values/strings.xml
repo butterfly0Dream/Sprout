@@ -5,10 +5,20 @@
 
     <string name="tab_home">首页</string>
     <string name="tab_mine">我的</string>
-    
-    <string name="login">登录</string>
-    <string name="register">注册</string>
-    <string name="hint_username">请输入账号</string>
-    <string name="hint_password">请输入密码</string>
-    <string name="not_login">暂不登录</string>
+
+    <string name="login_not_login">暂不登录</string>
+    <string name="login_success">登录成功</string>
+
+    <string name="register_success">注册成功</string>
+
+    <string name="title_login">登录</string>
+    <string name="title_register">注册</string>
+
+    <string name="common_hint_username">请输入账号</string>
+    <string name="common_hint_password">请输入密码</string>
+    <string name="common_hint_pwd_again">请再次输入密码</string>
+    <string name="common_check_username">请填写账号</string>
+    <string name="common_check_pwd">请填写密码</string>
+    <string name="common_check_repwd">请填写确认密码</string>
+    <string name="common_check_2pwd">两次输入密码不一致</string>
 </resources>
