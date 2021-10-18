@@ -18,6 +18,12 @@ dependencies {
     api(ThirdParty.cookieJar)
     api(Retrofit.retrofit)
     api(Retrofit.gson)
+    api(SmartRefresh.core)
+    api(SmartRefresh.header)
+    api(ThirdParty.banner)
+    api(Glide.glide)
+    api(Glide.transformations)
+    api(ThirdParty.baseQuickAdapter)
 
     testImplementation(Dependencies.junit)
     androidTestImplementation(AndroidTestingLib.testExt)

@@ -16,6 +16,20 @@ class HomeRepo : BaseRepository() {
     private var page = 0
 
     /**
+     * 获取置顶文章
+     */
+    suspend fun getTopArticles() = withIO {
+        //请求置顶
+        RetrofitManager.getApiService(ApiService::class.java)
+            .getTopList()
+            .data()
+            .let {
+                //对模型转换
+                ArticleListBean.trans(it)
+            }
+    }
+
+    /**
      * 请求第一页
      */
     suspend fun getArticles() = withIO {
@@ -40,6 +54,14 @@ class HomeRepo : BaseRepository() {
                 ArticleListBean.trans(it)
             } ?: mutableListOf()
     }
-
+    
+    /**
+     * 获取banner
+     */
+    suspend fun getBanner() = withIO {
+        RetrofitManager.getApiService(ApiService::class.java)
+            .getBanner()
+            .data()
+    }
 
 }

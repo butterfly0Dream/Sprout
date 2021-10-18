@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.scwang.smart.refresh.layout.SmartRefreshLayout
 
 /**
  * Author: JackPan
@@ -28,6 +29,7 @@ fun ViewPager2.initFragment(
     }
     return this
 }
+
 /**
  * ViewPager2选中
  */
@@ -37,6 +39,17 @@ fun ViewPager2.doSelected(selected: (Int) -> Unit) {
             selected.invoke(position)
         }
     })
+}
+
+/**
+ * 防止重复点击,可同时注册多个view
+ */
+fun setNoRepeatClick(vararg views: View, interval: Long = 400, onClick: (View) -> Unit) {
+    views.forEach {
+        it.clickNoRepeat(interval = interval) { view ->
+            onClick.invoke(view)
+        }
+    }
 }
 
 /**
@@ -55,4 +68,26 @@ fun View.clickNoRepeat(interval: Long = 400, onClick: (View) -> Unit) {
         lastTime = currentTime
         onClick(it)
     }
+}
+
+/**
+ * 隐藏刷新加载ui
+ */
+fun SmartRefreshLayout.smartDismiss() {
+    finishRefresh(0)
+    finishLoadMore(0)
+}
+
+/**
+ * 配置SmartRefreshLayout
+ */
+fun SmartRefreshLayout.smartConfig() {
+    //加载
+    setEnableLoadMore(true)
+    //刷新
+    setEnableRefresh(true)
+    //不满一页关闭加载
+    //setEnableLoadMoreWhenContentNotFull(false)
+    //滚动回弹
+    setEnableOverScrollDrag(true)
 }

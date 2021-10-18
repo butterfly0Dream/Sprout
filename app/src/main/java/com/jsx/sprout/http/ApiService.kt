@@ -31,25 +31,41 @@ interface ApiService {
     suspend fun getBanner(): ApiResponse<MutableList<BannerBean>>
 
     /**
+     * 收藏
+     */
+    @POST("/lg/collect/{id}/json")
+    suspend fun collect(@Path("id") id: Int): ApiResponse<Any>
+
+    /**
+     * 取消收藏
+     */
+    @POST("/lg/uncollect_originId/{id}/json")
+    suspend fun unCollect(@Path("id") id: Int): ApiResponse<Any>
+
+    /**
      * 登录
      */
     @FormUrlEncoded
     @POST("/user/login")
-    suspend fun login(@Field("username") username: String,
-                      @Field("password") password: String): ApiResponse<UserBean>
+    suspend fun login(
+        @Field("username") username: String,
+        @Field("password") password: String
+    ): ApiResponse<UserBean>
 
     /**
      * 退出
      */
     @GET("/user/logout/json")
-    suspend fun logout():ApiResponse<Any>
+    suspend fun logout(): ApiResponse<Any>
 
     /**
      * 注册
      */
     @FormUrlEncoded
     @POST("/user/register")
-    suspend fun register(@Field("username")username: String,
-                         @Field("password")password: String,
-                         @Field("repassword")repassword: String) : ApiResponse<Any>
+    suspend fun register(
+        @Field("username") username: String,
+        @Field("password") password: String,
+        @Field("repassword") repassword: String
+    ): ApiResponse<Any>
 }

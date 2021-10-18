@@ -1,23 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vm"
             type="com.jsx.sprout.ui.main.home.HomeVM" />
     </data>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".ui.main.home.HomeFragment">
 
-        <TextView
-            android:id="@+id/tv_home"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_title"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="home" />
+            android:layout_height="54dp"
+            android:background="?attr/main_bg_1"
+            android:elevation="6dp">
 
-    </FrameLayout>
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/tab_home"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/bg_search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/bg_search"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:background="@drawable/radius_16_theme_2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/iv_add"
+                app:layout_constraintStart_toEndOf="@+id/tv_title"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_search"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/search"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/bg_search"
+                app:layout_constraintStart_toStartOf="@+id/bg_search"
+                app:layout_constraintTop_toTopOf="@+id/bg_search" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:gravity="center_vertical"
+                android:text="@string/home_search_hint"
+                android:textSize="13.5sp"
+                app:layout_constraintBottom_toBottomOf="@+id/bg_search"
+                app:layout_constraintEnd_toEndOf="@+id/bg_search"
+                app:layout_constraintStart_toEndOf="@+id/iv_search"
+                app:layout_constraintTop_toTopOf="@+id/bg_search" />
+
+            <ImageView
+                android:id="@+id/iv_add"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/ripple_circle_bg"
+                android:padding="8dp"
+                android:src="@drawable/svg_add"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/bg_search"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/smart_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <com.scwang.smart.refresh.header.ClassicsHeader
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <cn.bingoogolapple.bgabanner.BGABanner
+                        android:id="@+id/banner"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        app:banner_indicatorGravity="left"
+                        app:banner_pageChangeDuration="1000"
+                        app:banner_pointAutoPlayAble="true"
+                        app:banner_pointAutoPlayInterval="3000"
+                        app:banner_pointContainerBackground="@color/transparent"
+                        app:banner_pointContainerLeftRightPadding="16dp"
+                        app:banner_pointDrawable="@drawable/bga_banner_selector_point_hollow"
+                        app:banner_pointTopBottomMargin="40dp"
+                        app:layout_scrollFlags="scroll" />
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+            <com.scwang.smart.refresh.footer.ClassicsFooter
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+    </LinearLayout>
 </layout>

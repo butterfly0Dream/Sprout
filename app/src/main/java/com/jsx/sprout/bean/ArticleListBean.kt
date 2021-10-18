@@ -3,6 +3,8 @@ package com.jsx.sprout.bean
 import android.os.Build
 import android.text.Html
 import android.text.TextUtils
+import com.chad.library.adapter.base.entity.MultiItemEntity
+import com.jsx.sprout.constants.Constants
 
 /**
  * Author: JackPan
@@ -57,7 +59,18 @@ data class ArticleListBean(
      * 1.置顶
      */
     var topTitle: String? = null
-) {
+) : MultiItemEntity {
+
+    override val itemType: Int
+        get() = if (picUrl.isNullOrEmpty()) {
+            Constants.ITEM_ARTICLE
+        } else {
+            Constants.ITEM_ARTICLE_PIC
+        }
+
+    override fun equals(other: Any?): Boolean {
+        return super.equals(other)
+    }
 
     companion object {
         fun trans(list: MutableList<ArticleBean.DatasBean>): MutableList<ArticleListBean> {

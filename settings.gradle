@@ -6,6 +6,9 @@ dependencyResolutionManagement {
         //cookie持久化jar包 添加以下语句
         maven { url "https://jitpack.io" }
         gradlePluginPortal()
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
     }
 }
 rootProject.name = "Sprout"
