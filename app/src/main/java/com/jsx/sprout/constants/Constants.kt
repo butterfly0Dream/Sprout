@@ -17,4 +17,12 @@ object Constants {
      */
     const val ITEM_ARTICLE_PIC = 20
 
+    /**
+     * 项目/公众号公用一套逻辑。项目标记
+     */
+    const val TAB_PROJECT= 10
+    /**
+     * 项目/公众号公用一套逻辑。公众号标记
+     */
+    const val TAB_WXARTICLE = 20
 }

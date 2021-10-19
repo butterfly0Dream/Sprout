@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:elevation="6dp"
+            android:background="?attr/main_bg_1">
+
+            <net.lucode.hackware.magicindicator.MagicIndicator
+                android:id="@+id/tab"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp" />
+
+        </LinearLayout>
+
+        <com.jsx.applib.view.NestedScrollableHost
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_article"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </com.jsx.applib.view.NestedScrollableHost>
+    </LinearLayout>
+</layout>

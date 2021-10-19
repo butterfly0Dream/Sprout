@@ -13,6 +13,8 @@ object ThirdParty {
     const val banner = "com.github.bingoogolapple:BGABanner-Android:3.0.1"
     // RecyclerViewAdapter
     const val baseQuickAdapter = "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4"
+    // viewpager指示器
+    const val magicIndicator = "com.github.hackware1993:MagicIndicator:1.7.0"
 }
 
 object Retrofit {

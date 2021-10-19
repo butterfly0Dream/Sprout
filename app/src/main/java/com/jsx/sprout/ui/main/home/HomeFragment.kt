@@ -97,18 +97,18 @@ class HomeFragment : LazyVmFragment<FragmentHomeBinding>(), BGABanner.Adapter<Im
 
     override fun observe() {
         //文章列表
-        mState.articleList.observe(this, Observer {
+        mState.articleList.observe(this, {
             binding.smartRefresh.smartDismiss()
             adapter.submitList(it)
 //            binding.loadingTip.dismiss()
         })
         //banner
-        mState.banner.observe(this, Observer {
+        mState.banner.observe(this, {
             bannerList = it
             initBanner()
         })
         //请求错误
-        mState.errorLiveData.observe(this, Observer {
+        mState.errorLiveData.observe(this, {
             binding.smartRefresh.smartDismiss()
         })
     }

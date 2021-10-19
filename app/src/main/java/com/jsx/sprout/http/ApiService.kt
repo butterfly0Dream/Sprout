@@ -3,6 +3,7 @@ package com.jsx.sprout.http
 import com.jsx.sprout.bean.ArticleBean
 import com.jsx.sprout.ui.main.home.BannerBean
 import com.jsx.sprout.ui.login.UserBean
+import com.jsx.sprout.ui.main.tab.TabBean
 import retrofit2.http.*
 
 /**
@@ -68,4 +69,30 @@ interface ApiService {
         @Field("password") password: String,
         @Field("repassword") repassword: String
     ): ApiResponse<Any>
+
+    /**
+     * 获取项目分类tab
+     */
+    @GET("/project/tree/json")
+    suspend fun getProjectTabList(): ApiResponse<MutableList<TabBean>>
+
+    /**
+     * 获取微信公众号分类tab
+     */
+    @GET("/wxarticle/chapters/json")
+    suspend fun getAccountTabList(): ApiResponse<MutableList<TabBean>>
+
+    /**
+     * 获取项目列表
+     */
+    @GET("/project/list/{pageNum}/json")
+    suspend fun getProjectList(@Path("pageNum")pageNum:Int,@Query("cid")cid:Int)
+            :ApiResponse<ArticleBean>
+
+    /**
+     * 获取公众号列表
+     */
+    @GET("/wxarticle/list/{id}/{pageNum}/json")
+    suspend fun getAccountList(@Path("id")cid:Int,@Path("pageNum")pageNum:Int)
+            : ApiResponse<ArticleBean>
 }

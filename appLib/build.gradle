@@ -24,6 +24,7 @@ dependencies {
     api(Glide.glide)
     api(Glide.transformations)
     api(ThirdParty.baseQuickAdapter)
+    api(ThirdParty.magicIndicator)
 
     testImplementation(Dependencies.junit)
     androidTestImplementation(AndroidTestingLib.testExt)

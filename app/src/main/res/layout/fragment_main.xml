@@ -23,6 +23,8 @@
             android:id="@+id/btmNav"
             android:layout_width="match_parent"
             android:layout_height="58dp"
+            app:labelVisibilityMode="labeled"
+            android:background="?attr/main_bg_1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:itemIconTint="@drawable/selector_bottom_navigation_item"
             app:itemTextColor="@drawable/selector_bottom_navigation_item"

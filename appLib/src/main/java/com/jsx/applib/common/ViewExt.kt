@@ -1,8 +1,15 @@
 package com.jsx.applib.common
 
+import android.content.Context
+import android.content.res.TypedArray
+import android.os.Parcelable
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.widget.EditText
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
@@ -90,4 +97,18 @@ fun SmartRefreshLayout.smartConfig() {
     //setEnableLoadMoreWhenContentNotFull(false)
     //滚动回弹
     setEnableOverScrollDrag(true)
+}
+
+/**
+ * 获取当前主图颜色属性
+ */
+fun Context.getThemeColor(attr: Int): Int {
+    val array: TypedArray = theme.obtainStyledAttributes(
+        intArrayOf(
+            attr
+        )
+    )
+    val color = array.getColor(0, -0x50506)
+    array.recycle()
+    return color
 }
