@@ -95,4 +95,11 @@ interface ApiService {
     @GET("/wxarticle/list/{id}/{pageNum}/json")
     suspend fun getAccountList(@Path("id")cid:Int,@Path("pageNum")pageNum:Int)
             : ApiResponse<ArticleBean>
+
+    /**
+     * 按关键字搜索
+     */
+    @POST("/article/query/{pageNum}/json")
+    suspend fun search(@Path("pageNum")pageNum:Int,@Query("k")k:String)
+            : ApiResponse<ArticleBean>
 }

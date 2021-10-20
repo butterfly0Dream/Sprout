@@ -15,6 +15,8 @@ object ThirdParty {
     const val baseQuickAdapter = "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4"
     // viewpager指示器
     const val magicIndicator = "com.github.hackware1993:MagicIndicator:1.7.0"
+    // 标签列表
+    const val labelsView = "com.github.donkingliang:LabelsView:1.6.5"
 }
 
 object Retrofit {

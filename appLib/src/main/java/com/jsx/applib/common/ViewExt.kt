@@ -112,3 +112,20 @@ fun Context.getThemeColor(attr: Int): Int {
     array.recycle()
     return color
 }
+
+/**
+ * editText搜索按钮
+ * @param onClick 搜索点击事件
+ */
+fun EditText.keyBoardSearch(onClick: () -> Unit) {
+    //添加搜索按钮
+    setOnEditorActionListener { _, actionId, _ ->
+        if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+            onClick()
+        } else {
+            toast("请输入关键字")
+            return@setOnEditorActionListener false
+        }
+        return@setOnEditorActionListener true
+    }
+}

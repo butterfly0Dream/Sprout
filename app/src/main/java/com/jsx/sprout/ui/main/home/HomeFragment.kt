@@ -61,10 +61,10 @@ class HomeFragment : LazyVmFragment<FragmentHomeBinding>(), BGABanner.Adapter<Im
         adapter.apply {
             binding.rvList.adapter = this
             setOnItemClickListener { i, _ ->
-//                nav().navigate(
-//                    R.id.action_main_fragment_to_web_fragment,
-//                    this@HomeFragment.adapter.getBundle(i)
-//                )
+                nav().navigate(
+                    R.id.action_main_fragment_to_web_fragment,
+                    this@HomeFragment.adapter.getBundle(i)
+                )
             }
             setOnItemChildClickListener { i, view ->
                 when (view.id) {
@@ -115,9 +115,8 @@ class HomeFragment : LazyVmFragment<FragmentHomeBinding>(), BGABanner.Adapter<Im
 
     override fun onClick() {
         binding.bgSearch.clickNoRepeat {
-//            nav().navigate(R.id.action_main_fragment_to_search_fragment)
+            nav().navigate(R.id.action_main_fragment_to_search_fragment)
             Log.d(TAG, "onClick: bgSearch")
-            // TODO: 2021/10/18 搜索页面 
         }
         binding.ivAdd.clickNoRepeat {
             when (it.id) {
@@ -136,14 +135,13 @@ class HomeFragment : LazyVmFragment<FragmentHomeBinding>(), BGABanner.Adapter<Im
     }
 
     override fun onBannerItemClick(banner: BGABanner?, itemView: ImageView?, model: String?, position: Int) {
-//        nav().navigate(R.id.action_main_fragment_to_web_fragment, Bundle().apply {
-//            bannerList?.get(position)?.let {
-//                putString("loadUrl", it.url)
-//                putString("title", it.title)
-//                putInt("id", it.id)
-//            }
-//        })
-        // TODO: 2021/10/18 打开banner
+        nav().navigate(R.id.action_main_fragment_to_web_fragment, Bundle().apply {
+            bannerList?.get(position)?.let {
+                putString("loadUrl", it.url)
+                putString("title", it.title)
+                putInt("id", it.id)
+            }
+        })
     }
 
     /**

@@ -15,6 +15,16 @@
         <action
             android:id="@+id/action_main_fragment_to_login_fragment"
             app:destination="@+id/login_fragment" />
+
+        <!--搜索-->
+        <action
+            android:id="@+id/action_main_fragment_to_search_fragment"
+            app:destination="@+id/search_fragment" />
+
+        <!--web-->
+        <action
+            android:id="@+id/action_main_fragment_to_web_fragment"
+            app:destination="@+id/web_fragment" />
     </fragment>
 
     <fragment
@@ -32,6 +42,27 @@
         android:id="@+id/register_fragment"
         android:name="com.jsx.sprout.ui.register.RegisterFragment"
         android:label="RegisterFragment"
-        tools:layout="@layout/fragment_register"></fragment>
+        tools:layout="@layout/fragment_register"/>
+
+    <fragment
+        android:id="@+id/search_fragment"
+        android:name="com.jsx.sprout.ui.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search">
+        <!--登陆-->
+        <action
+            android:id="@+id/action_search_fragment_to_login_fragment"
+            app:destination="@+id/login_fragment" />
+        <!--web-->
+        <action
+            android:id="@+id/action_search_fragment_to_web_fragment"
+            app:destination="@+id/web_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/web_fragment"
+        android:name="com.jsx.sprout.ui.web.WebFragment"
+        android:label="WebFragment"
+        tools:layout="@layout/fragment_web" />
 
 </navigation>

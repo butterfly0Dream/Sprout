@@ -79,11 +79,10 @@ class ArticleListFragment : BaseVmFragment<FragmentArticleBinding>() {
         mAdapter.apply {
             binding.rvArticleList.adapter = this
             setOnItemClickListener { i, _ ->
-//                nav().navigate(
-//                    R.id.action_main_fragment_to_web_fragment,
-//                    this@ArticleListFragment.adapter.getBundle(i)
-//                )
-                // TODO: 2021/10/19 文章详情页
+                nav().navigate(
+                    R.id.action_main_fragment_to_web_fragment,
+                    this@ArticleListFragment.mAdapter.getBundle(i)
+                )
             }
             setOnItemChildClickListener { i, view ->
                 when (view.id) {

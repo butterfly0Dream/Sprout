@@ -25,4 +25,8 @@ object Constants {
      * 项目/公众号公用一套逻辑。公众号标记
      */
     const val TAB_WXARTICLE = 20
+    /**
+     * 搜索历史
+     */
+    const val SEARCH_RECORD = "searchRecord"
 }
