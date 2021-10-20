@@ -7,6 +7,11 @@ package com.jsx.sprout.constants
  * Description:
  */
 object Constants {
+    /**
+     * app name
+     */
+    const val APP_NAME = "WanAndroid"
+
     const val DEFAULT_TIMEOUT = 10000
     /**
      * 多布局中带图片
@@ -29,4 +34,16 @@ object Constants {
      * 搜索历史
      */
     const val SEARCH_RECORD = "searchRecord"
+    /**
+     * 用户积分信息
+     */
+    const val SCORE_INFO = "scoreInfo"
+    /**
+     * webView url
+     */
+    const val WEB_URL = "loadUrl"
+    /**
+     * webView 标题
+     */
+    const val WEB_TITLE = "title"
 }

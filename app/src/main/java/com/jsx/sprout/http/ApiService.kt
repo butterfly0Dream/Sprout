@@ -3,6 +3,7 @@ package com.jsx.sprout.http
 import com.jsx.sprout.bean.ArticleBean
 import com.jsx.sprout.ui.main.home.BannerBean
 import com.jsx.sprout.ui.login.UserBean
+import com.jsx.sprout.ui.main.mine.ScoreBean
 import com.jsx.sprout.ui.main.tab.TabBean
 import retrofit2.http.*
 
@@ -102,4 +103,10 @@ interface ApiService {
     @POST("/article/query/{pageNum}/json")
     suspend fun search(@Path("pageNum")pageNum:Int,@Query("k")k:String)
             : ApiResponse<ArticleBean>
+
+    /**
+     * 获取个人积分
+     */
+    @GET("/lg/coin/userinfo/json")
+    suspend fun getScore():ApiResponse<ScoreBean>
 }

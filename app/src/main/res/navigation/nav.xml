@@ -25,6 +25,11 @@
         <action
             android:id="@+id/action_main_fragment_to_web_fragment"
             app:destination="@+id/web_fragment" />
+
+        <!--设置-->
+        <action
+            android:id="@+id/action_main_fragment_to_set_fragment"
+            app:destination="@+id/set_fragment" />
     </fragment>
 
     <fragment
@@ -64,5 +69,16 @@
         android:name="com.jsx.sprout.ui.web.WebFragment"
         android:label="WebFragment"
         tools:layout="@layout/fragment_web" />
+
+    <fragment
+        android:id="@+id/set_fragment"
+        android:name="com.jsx.sprout.ui.setting.SettingFragment"
+        android:label="SetFragment"
+        tools:layout="@layout/fragment_setting">
+        <!--web-->
+        <action
+            android:id="@+id/action_set_fragment_to_web_fragment"
+            app:destination="@+id/web_fragment" />
+    </fragment>
 
 </navigation>

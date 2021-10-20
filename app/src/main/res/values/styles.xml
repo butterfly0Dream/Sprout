@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <style name="text_title">
+        <item name="android:textColor">?attr/theme_color_1</item>
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
     <style name="text_1">
         <item name="android:textColor">?attr/theme_color_1</item>
         <item name="android:textSize">@dimen/text_1</item>

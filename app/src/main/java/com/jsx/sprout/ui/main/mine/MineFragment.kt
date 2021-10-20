@@ -1,19 +1,16 @@
 package com.jsx.sprout.ui.main.mine
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.jsx.applib.base.LazyVmFragment
-import com.jsx.applib.common.TAG
 import com.jsx.applib.common.clickNoRepeat
+import com.jsx.applib.common.toast
 import com.jsx.sprout.R
 import com.jsx.sprout.SharedViewModel
+import com.jsx.sprout.constants.Constants
+import com.jsx.sprout.constants.UrlConstants
 import com.jsx.sprout.databinding.FragmentMineBinding
-import com.jsx.sprout.ui.login.LoginVM
+import com.jsx.sprout.utils.CacheUtil
 
 /**
  * A simple [Fragment] subclass.
@@ -32,19 +29,79 @@ class MineFragment : LazyVmFragment<FragmentMineBinding>() {
         mEvent = getApplicationViewModel(SharedViewModel::class.java)
     }
 
+    override fun lazyInit() {
+        binding.vm = mState
+        mState.getScore()
+    }
+
     override fun observe() {
         mEvent.loginState.observe(this, {
-            Log.d(TAG, "observe login state: $it")
+            if (it){
+                mState.getScore()
+            }else {
+                mState.username.set("请先登录")
+                mState.id.set("---")
+                mState.rank.set("0")
+                mState.internal.set("0")
+            }
         })
     }
 
-    override fun lazyInit() {
-
-    }
-
     override fun onClick() {
-        binding.tvUsername.clickNoRepeat{
-            nav().navigate(R.id.action_main_fragment_to_login_fragment)
+        binding.ivHead.clickNoRepeat {
+            toast("我只是一只睡着的小老鼠...")
+        }
+        binding.tvName.clickNoRepeat {
+            if (!CacheUtil.isLogin()) {
+                nav().navigate(R.id.action_main_fragment_to_login_fragment)
+            }
+        }
+//        binding.llHistory.clickNoRepeat {
+//            nav().navigate(R.id.action_main_fragment_to_history_fragment)
+//        }
+//        binding.llRanking.clickNoRepeat {
+//            if (CacheUtil.isLogin()) {
+//                val integralBean = mState.scoreLiveData?.value
+//                nav().navigate(R.id.action_main_fragment_to_rank_fragment, Bundle().apply {
+//                    integralBean?.apply {
+//                        putInt(Constants.MY_INTEGRAL, coinCount)
+//                        putInt(Constants.MY_RANK, rank)
+//                        putString(Constants.MY_NAME, username)
+//                    }
+//                })
+//            } else {
+//                toast("请先登录")
+//            }
+//        }
+//        binding.clIntegral.clickNoRepeat {
+//            if (CacheUtil.isLogin()) {
+//                nav().navigate(R.id.action_main_fragment_to_integral_fragment)
+//            } else {
+//                toast("请先登录")
+//            }
+//        }
+//        binding.clCollect.clickNoRepeat {
+//            if (CacheUtil.isLogin()) {
+//                nav().navigate(R.id.action_main_fragment_to_my_article_fragment)
+//            } else {
+//                toast("请先登录")
+//            }
+//        }
+//        binding.clArticle.clickNoRepeat {
+//            if (CacheUtil.isLogin()) {
+//                nav().navigate(R.id.action_main_fragment_to_my_article_fragment)
+//            } else {
+//                toast("请先登录")
+//            }
+//        }
+        binding.clWebsite.clickNoRepeat {
+            nav().navigate(R.id.action_main_fragment_to_web_fragment, Bundle().apply {
+                putString(Constants.WEB_URL, UrlConstants.WEBSITE)
+                putString(Constants.WEB_TITLE, Constants.APP_NAME)
+            })
+        }
+        binding.clSet.clickNoRepeat {
+            nav().navigate(R.id.action_main_fragment_to_set_fragment)
         }
     }
 
