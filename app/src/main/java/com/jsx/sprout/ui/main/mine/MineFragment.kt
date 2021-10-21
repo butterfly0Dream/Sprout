@@ -73,20 +73,20 @@ class MineFragment : LazyVmFragment<FragmentMineBinding>() {
 //                toast("请先登录")
 //            }
 //        }
-//        binding.clIntegral.clickNoRepeat {
-//            if (CacheUtil.isLogin()) {
-//                nav().navigate(R.id.action_main_fragment_to_integral_fragment)
-//            } else {
-//                toast("请先登录")
-//            }
-//        }
-//        binding.clCollect.clickNoRepeat {
-//            if (CacheUtil.isLogin()) {
-//                nav().navigate(R.id.action_main_fragment_to_my_article_fragment)
-//            } else {
-//                toast("请先登录")
-//            }
-//        }
+        binding.clIntegral.clickNoRepeat {
+            if (CacheUtil.isLogin()) {
+                nav().navigate(R.id.action_main_fragment_to_score_fragment)
+            } else {
+                toast("请先登录")
+            }
+        }
+        binding.clCollect.clickNoRepeat {
+            if (CacheUtil.isLogin()) {
+                nav().navigate(R.id.action_main_fragment_to_collect_fragment)
+            } else {
+                toast("请先登录")
+            }
+        }
 //        binding.clArticle.clickNoRepeat {
 //            if (CacheUtil.isLogin()) {
 //                nav().navigate(R.id.action_main_fragment_to_my_article_fragment)

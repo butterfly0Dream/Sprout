@@ -32,7 +32,7 @@ class SettingFragment : BaseVmFragment<FragmentSettingBinding>() {
         mState.logoutLiveData.observe(this, {
             toast("已退出登陆")
             nav().navigateUp()
-            mEvent.loginState.value = true
+            mEvent.loginState.value = false
         })
     }
 

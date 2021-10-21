@@ -1,10 +1,12 @@
 package com.jsx.sprout.http
 
 import com.jsx.sprout.bean.ArticleBean
-import com.jsx.sprout.ui.main.home.BannerBean
+import com.jsx.sprout.ui.collect.CollectBean
 import com.jsx.sprout.ui.login.UserBean
+import com.jsx.sprout.ui.main.home.BannerBean
 import com.jsx.sprout.ui.main.mine.ScoreBean
 import com.jsx.sprout.ui.main.tab.TabBean
+import com.jsx.sprout.ui.score.ScoreRecordBean
 import retrofit2.http.*
 
 /**
@@ -109,4 +111,17 @@ interface ApiService {
      */
     @GET("/lg/coin/userinfo/json")
     suspend fun getScore():ApiResponse<ScoreBean>
+
+    /**
+     * 积分记录
+     */
+    @GET("/lg/coin/list/{pageNum}/json")
+    suspend fun getScoreRecord(@Path("pageNum")pageNum: Int) : ApiResponse<ScoreRecordBean>
+
+    /**
+     * 获取收藏文章数据
+     */
+    @GET("/lg/collect/list/{page}/json")
+    suspend fun getCollectData(@Path("page") pageNo: Int):
+            ApiResponse<CollectBean>
 }

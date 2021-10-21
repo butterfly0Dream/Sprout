@@ -5,6 +5,7 @@ import android.text.Html
 import android.text.TextUtils
 import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.jsx.sprout.constants.Constants
+import com.jsx.sprout.ui.collect.CollectBean
 
 /**
  * Author: JackPan
@@ -98,21 +99,21 @@ data class ArticleListBean(
             }.toMutableList()
         }
 
-//        fun transByCollect(list: MutableList<CollectBean.DatasBean>): MutableList<ArticleListBean> {
-//            return list.map {
-//                ArticleListBean().apply {
-//                    id = it.originId
-//                    author = it.author
-//                    collect = true
-//                    desc = it.desc
-//                    picUrl = it.envelopePic
-//                    link = it.link
-//                    date = it.niceDate
-//                    title = Html.fromHtml(it.title).toString()
-//                    articleTag = it.chapterName
-//                    topTitle = ""
-//                }
-//            }.toMutableList()
-//        }
+        fun transByCollect(list: MutableList<CollectBean.DatasBean>): MutableList<ArticleListBean> {
+            return list.map {
+                ArticleListBean().apply {
+                    id = it.originId
+                    author = it.author
+                    collect = true
+                    desc = it.desc
+                    picUrl = it.envelopePic
+                    link = it.link
+                    date = it.niceDate
+                    title = Html.fromHtml(it.title).toString()
+                    articleTag = it.chapterName
+                    topTitle = ""
+                }
+            }.toMutableList()
+        }
     }
 }

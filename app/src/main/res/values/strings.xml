@@ -7,6 +7,8 @@
     <string name="tab_project">项目</string>
     <string name="tab_wx">公众号</string>
     <string name="tab_mine">我的</string>
+    <string name="title_score">积分</string>
+    <string name="title_collect">收藏</string>
 
     <string name="home_search_hint">根据关键字搜索</string>
 
@@ -21,7 +23,7 @@
     <string name="mine_history">足迹</string>
     <string name="mine_rank">排名</string>
     <string name="mine_score">我的积分</string>
-    <string name="mine_collection">我的积分</string>
+    <string name="mine_collection">我的收藏</string>
     <string name="mine_article">我的文章</string>
     <string name="mine_current_score">当前积分</string>
     <string name="mine_website">网站</string>

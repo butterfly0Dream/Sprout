@@ -13,6 +13,7 @@ dependencies {
     api(Dependencies.viewpager2)
     api(Navigation.fragmentKtx)
     api(Navigation.uiKtx)
+    api(Dependencies.recyclerview)
 
     api(ThirdParty.okhttp)
     api(ThirdParty.cookieJar)

@@ -4,7 +4,7 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import com.jsx.applib.base.BaseViewModel
 import com.jsx.applib.utils.SPUtils
-import com.jsx.sprout.constants.Constants
+import com.jsx.sprout.constants.SPConstants
 import com.jsx.sprout.utils.CacheUtil
 
 /**
@@ -49,7 +49,7 @@ class MineVM : BaseViewModel() {
     fun getScore() {
         launch {
             var integralBean:ScoreBean? = null
-            SPUtils.getObject(Constants.SCORE_INFO)?.let {
+            SPUtils.getObject(SPConstants.SCORE_INFO)?.let {
                 //先从本地获取积分，获取不到再通过网络获取
                 integralBean = it as ScoreBean?
             }
@@ -57,7 +57,7 @@ class MineVM : BaseViewModel() {
                 if (CacheUtil.isLogin()) {
                     val data = mRepo.getInternal()
                     setScore(data)
-                    SPUtils.setObject(Constants.SCORE_INFO,data)
+                    SPUtils.setObject(SPConstants.SCORE_INFO,data)
                 }
             } else {
                 setScore(integralBean)

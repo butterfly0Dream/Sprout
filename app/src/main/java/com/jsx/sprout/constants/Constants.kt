@@ -31,14 +31,6 @@ object Constants {
      */
     const val TAB_WXARTICLE = 20
     /**
-     * 搜索历史
-     */
-    const val SEARCH_RECORD = "searchRecord"
-    /**
-     * 用户积分信息
-     */
-    const val SCORE_INFO = "scoreInfo"
-    /**
      * webView url
      */
     const val WEB_URL = "loadUrl"

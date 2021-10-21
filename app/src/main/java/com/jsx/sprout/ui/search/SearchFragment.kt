@@ -20,7 +20,7 @@ import com.jsx.applib.utils.SPUtils
 import com.jsx.applib.utils.ScreenUtils
 import com.jsx.sprout.R
 import com.jsx.sprout.common.ArticleAdapter
-import com.jsx.sprout.constants.Constants
+import com.jsx.sprout.constants.SPConstants
 import com.jsx.sprout.databinding.FragmentSearchBinding
 import com.jsx.sprout.utils.CacheUtil
 import kotlinx.coroutines.delay
@@ -63,7 +63,7 @@ class SearchFragment : BaseVmFragment<FragmentSearchBinding>() {
     override fun onDestroyView() {
         super.onDestroyView()
         //将新的搜索记录保存在本地
-        SPUtils.setObject(Constants.SEARCH_RECORD, mRecordList)
+        SPUtils.setObject(SPConstants.SEARCH_RECORD, mRecordList)
     }
 
     override fun initViewModel() {
@@ -92,10 +92,10 @@ class SearchFragment : BaseVmFragment<FragmentSearchBinding>() {
     override fun init(savedInstanceState: Bundle?) {
         binding.vm = mState
         //获取收缩记录
-        mRecordList = if (SPUtils.getObject(Constants.SEARCH_RECORD) == null) {
+        mRecordList = if (SPUtils.getObject(SPConstants.SEARCH_RECORD) == null) {
             mutableListOf()
         } else {
-            SPUtils.getObject(Constants.SEARCH_RECORD) as MutableList<String>?
+            SPUtils.getObject(SPConstants.SEARCH_RECORD) as MutableList<String>?
         }
         initView()
         loadData()

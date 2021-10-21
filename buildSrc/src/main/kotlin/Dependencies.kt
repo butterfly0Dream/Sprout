@@ -23,6 +23,7 @@ object Dependencies {
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
     const val material = "com.google.android.material:material:${Versions.material}"
     const val viewpager2 = "androidx.viewpager2:viewpager2:${Versions.viewpager2}"
+    const val recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
 }
 
 object AndroidTestingLib {
