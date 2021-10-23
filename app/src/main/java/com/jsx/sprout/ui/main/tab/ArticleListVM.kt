@@ -18,7 +18,7 @@ class ArticleListVM : BaseViewModel() {
     private val mCollectRequest by lazy { CollectRequest(mArticleLiveData) }
 
     /**
-     * 体系列表数据
+     * 文章列表数据
      */
     private val mArticleLiveData = MutableLiveData<MutableList<ArticleListBean>>()
     val articleLiveData: LiveData<MutableList<ArticleListBean>> = mArticleLiveData

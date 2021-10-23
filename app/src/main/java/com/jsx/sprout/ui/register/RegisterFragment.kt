@@ -27,12 +27,12 @@ class RegisterFragment : BaseVmFragment<FragmentRegisterBinding>() {
     }
 
     override fun observe() {
-        mState.registerLiveData.observe(this, {
+        mState.registerLiveData.observe(viewLifecycleOwner, {
             toast(getString(R.string.register_success))
             nav().navigateUp()
         })
 
-        mState.errorLiveData.observe(this, {
+        mState.errorLiveData.observe(viewLifecycleOwner, {
             setViewStatus(true)
         })
     }

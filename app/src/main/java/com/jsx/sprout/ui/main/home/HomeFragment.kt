@@ -2,12 +2,9 @@ package com.jsx.sprout.ui.main.home
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.lifecycle.Observer
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.SimpleItemAnimator
 import cn.bingoogolapple.bgabanner.BGABanner
 import com.jsx.applib.base.LazyVmFragment
@@ -17,7 +14,6 @@ import com.jsx.sprout.SharedViewModel
 import com.jsx.sprout.common.ArticleAdapter
 import com.jsx.sprout.common.loadUrl
 import com.jsx.sprout.databinding.FragmentHomeBinding
-import com.jsx.sprout.ui.main.mine.MineVM
 import com.jsx.sprout.utils.CacheUtil
 
 /**
@@ -97,18 +93,18 @@ class HomeFragment : LazyVmFragment<FragmentHomeBinding>(), BGABanner.Adapter<Im
 
     override fun observe() {
         //文章列表
-        mState.articleList.observe(this, {
+        mState.articleList.observe(viewLifecycleOwner, {
             binding.smartRefresh.smartDismiss()
             adapter.submitList(it)
 //            binding.loadingTip.dismiss()
         })
         //banner
-        mState.banner.observe(this, {
+        mState.banner.observe(viewLifecycleOwner, {
             bannerList = it
             initBanner()
         })
         //请求错误
-        mState.errorLiveData.observe(this, {
+        mState.errorLiveData.observe(viewLifecycleOwner, {
             binding.smartRefresh.smartDismiss()
         })
     }

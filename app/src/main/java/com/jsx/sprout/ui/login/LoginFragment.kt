@@ -1,14 +1,7 @@
 package com.jsx.sprout.ui.login
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import com.jsx.applib.base.BaseVmFragment
-import com.jsx.applib.common.TAG
 import com.jsx.applib.common.clickNoRepeat
 import com.jsx.applib.common.toast
 import com.jsx.applib.utils.KeyBoardUtil
@@ -42,13 +35,13 @@ class LoginFragment : BaseVmFragment<FragmentLoginBinding>() {
     }
 
     override fun observe() {
-        loginVM.loginLiveData.observe(this, {
+        loginVM.loginLiveData.observe(viewLifecycleOwner, {
             toast(getString(R.string.login_success))
             nav().navigateUp()
             mEvent.loginState.value = true
         })
 
-        loginVM.errorLiveData.observe(this, {
+        loginVM.errorLiveData.observe(viewLifecycleOwner, {
             setViewStatus(true)
         })
     }

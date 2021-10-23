@@ -26,25 +26,25 @@ class WebFragment : BaseVmFragment<FragmentWebBinding>() {
      * 通过注解接收参数
      * url
      */
-    @Param
+    @Param(value = "loadUrl")
     private var loadUrl: String? = null
 
     /**
      * 文章标题
      */
-    @Param
+    @Param(value = "title")
     private var title: String? = null
 
     /**
      * 文章id
      */
-    @Param
+    @Param(value = "id")
     private var id: Int? = -1
 
     /**
      * 作者
      */
-    @Param
+    @Param(value = "author")
     private var author: String? = null
 
     private lateinit var mState: WebVM
@@ -77,12 +77,12 @@ class WebFragment : BaseVmFragment<FragmentWebBinding>() {
     }
 
     override fun initView() {
-        arguments?.apply {
-            loadUrl = getString("loadUrl")
-            title = getString("title")
-            id = getInt("id")
-            author = getString("author")
-        }
+//        arguments?.apply {
+//            loadUrl = getString("loadUrl")
+//            title = getString("title")
+//            id = getInt("id")
+//            author = getString("author")
+//        }
         Log.d(TAG, "initView: $title $loadUrl")
         title?.let {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {

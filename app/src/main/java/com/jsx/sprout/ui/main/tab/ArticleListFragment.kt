@@ -1,11 +1,11 @@
 package com.jsx.sprout.ui.main.tab
 
 import android.os.Bundle
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.jsx.applib.base.BaseVmFragment
 import com.jsx.applib.common.smartConfig
 import com.jsx.applib.common.smartDismiss
+import com.jsx.applib.utils.Param
 import com.jsx.sprout.R
 import com.jsx.sprout.common.ArticleAdapter
 import com.jsx.sprout.databinding.FragmentArticleBinding
@@ -24,11 +24,13 @@ class ArticleListFragment : BaseVmFragment<FragmentArticleBinding>() {
     /**
      * fragment类型，项目或公号
      */
+    @Param(value = "type")
     private var mType = 0
 
     /**
      * tab的id
      */
+    @Param(value = "tabId")
     private var mTabId = 0
 
     /**
@@ -41,19 +43,19 @@ class ArticleListFragment : BaseVmFragment<FragmentArticleBinding>() {
     }
 
     override fun init(savedInstanceState: Bundle?) {
-        mType = arguments?.getInt("type") ?: 0
-        mTabId = arguments?.getInt("tabId") ?: 0
+//        mType = arguments?.getInt("type") ?: 0
+//        mTabId = arguments?.getInt("tabId") ?: 0
         initView()
         loadData()
     }
 
     override fun observe() {
-        mState.articleLiveData?.observe(this, {
+        mState.articleLiveData.observe(viewLifecycleOwner, {
             binding.smartRefresh.smartDismiss()
-//            loadingTip.dismiss()
+            //            loadingTip.dismiss()
             mAdapter.submitList(it)
         })
-        mState.errorLiveData.observe(this, {
+        mState.errorLiveData.observe(viewLifecycleOwner, {
             binding.smartRefresh.smartDismiss()
             if (it.errorCode == -100) {
                 //显示网络错误
@@ -64,6 +66,7 @@ class ArticleListFragment : BaseVmFragment<FragmentArticleBinding>() {
             }
         })
     }
+
     override fun initView() {
         //关闭更新动画
         (binding.rvArticleList.itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false
@@ -73,7 +76,7 @@ class ArticleListFragment : BaseVmFragment<FragmentArticleBinding>() {
         }
         //上拉加载
         binding.smartRefresh.setOnLoadMoreListener {
-            mState.loadMoreArticleList(mType,mTabId)
+            mState.loadMoreArticleList(mType, mTabId)
         }
         binding.smartRefresh.smartConfig()
         mAdapter.apply {

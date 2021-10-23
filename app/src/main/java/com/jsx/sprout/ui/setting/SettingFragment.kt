@@ -29,7 +29,7 @@ class SettingFragment : BaseVmFragment<FragmentSettingBinding>() {
     }
 
     override fun observe() {
-        mState.logoutLiveData.observe(this, {
+        mState.logoutLiveData.observe(viewLifecycleOwner, {
             toast("已退出登陆")
             nav().navigateUp()
             mEvent.loginState.value = false

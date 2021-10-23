@@ -71,13 +71,13 @@ class SearchFragment : BaseVmFragment<FragmentSearchBinding>() {
     }
 
     override fun observe() {
-        mState.articleLiveData.observe(this, {
+        mState.articleLiveData.observe(viewLifecycleOwner, {
             binding.smartRefresh.smartDismiss()
             mAdapter.submitList(it)
 //            gloding?.dismiss()
         })
 
-        mState.errorLiveData.observe(this, {
+        mState.errorLiveData.observe(viewLifecycleOwner, {
             binding.smartRefresh.smartDismiss()
             if (it.errorCode == -100) {
                 //显示网络错误

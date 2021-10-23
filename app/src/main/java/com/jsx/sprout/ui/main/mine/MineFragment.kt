@@ -36,9 +36,9 @@ class MineFragment : LazyVmFragment<FragmentMineBinding>() {
 
     override fun observe() {
         mEvent.loginState.observe(this, {
-            if (it){
+            if (it) {
                 mState.getScore()
-            }else {
+            } else {
                 mState.username.set("请先登录")
                 mState.id.set("---")
                 mState.rank.set("0")
@@ -104,5 +104,4 @@ class MineFragment : LazyVmFragment<FragmentMineBinding>() {
             nav().navigate(R.id.action_main_fragment_to_set_fragment)
         }
     }
-
 }

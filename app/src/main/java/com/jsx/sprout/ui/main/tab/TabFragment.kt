@@ -2,9 +2,9 @@ package com.jsx.sprout.ui.main.tab
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import com.jsx.applib.base.LazyVmFragment
 import com.jsx.applib.common.initFragment
+import com.jsx.applib.utils.Param
 import com.jsx.sprout.R
 import com.jsx.sprout.common.TabNavigatorAdapter
 import com.jsx.sprout.databinding.FragmentTabBinding
@@ -25,12 +25,13 @@ class TabFragment : LazyVmFragment<FragmentTabBinding>() {
     /**
      * fragment 类型
      */
+    @Param(value = "type")
     private var mType = 0
 
     override fun lazyInit() {
-        arguments?.apply {
-            mType = getInt("type")
-        }
+//        arguments?.apply {
+//            mType = getInt("type")
+//        }
         loadData()
     }
 
@@ -39,7 +40,7 @@ class TabFragment : LazyVmFragment<FragmentTabBinding>() {
     }
 
     override fun observe() {
-        mState.tabData.observe(this, {
+        mState.tabData.observe(viewLifecycleOwner, {
             initViewPager(it)
         })
     }
@@ -81,7 +82,6 @@ class TabFragment : LazyVmFragment<FragmentTabBinding>() {
             binding.vpArticle.currentItem = it
         }
     }
-
 
     override fun getLayoutId() = R.layout.fragment_tab
 }

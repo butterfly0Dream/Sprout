@@ -1,6 +1,5 @@
 package com.jsx.applib.base
 
-import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,8 +12,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
 import com.jsx.applib.BaseApp
+import com.jsx.applib.navigation.NavHostFragment
+import com.jsx.applib.utils.ParamUtils
 
 /**
  * Author: JackPan
@@ -41,6 +41,7 @@ abstract class BaseVmFragment<BD : ViewDataBinding> : Fragment() {
         // 必须要在Activity与Fragment绑定后，因为如果Fragment可能获取的是Activity中ViewModel
         // 必须在onCreateView之前初始化viewModel，因为onCreateView中需要通过ViewModel与DataBinding绑定
         initViewModel()
+        ParamUtils.initParam(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

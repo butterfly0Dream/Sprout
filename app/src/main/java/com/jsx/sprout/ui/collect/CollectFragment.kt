@@ -28,13 +28,13 @@ class CollectFragment : BaseVmFragment<FragmentCollectBinding>() {
     }
 
     override fun observe() {
-        mState.articleLiveData.observe(this, {
+        mState.articleLiveData.observe(viewLifecycleOwner, {
             binding.smartRefresh.smartDismiss()
 //            gloding?.dismiss()
             adapter.submitList(it)
         })
 
-        mState.errorLiveData.observe(this, {
+        mState.errorLiveData.observe(viewLifecycleOwner, {
             binding.smartRefresh.smartDismiss()
             if (it.errorCode == -100) {
 //                //显示网络错误
