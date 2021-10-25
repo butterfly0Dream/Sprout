@@ -26,7 +26,6 @@ object CacheUtil {
         //移除用户信息
         SPUtils.removeKey(SPConstants.USER_INFO)
         //移除积分信息
-        SPUtils.removeKey(SPConstants.INTEGRAL_INFO)
-        // TODO: 2021/10/18 退出登录
+        SPUtils.removeKey(SPConstants.SCORE_INFO)
     }
 }

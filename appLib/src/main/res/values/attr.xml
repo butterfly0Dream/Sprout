@@ -24,4 +24,12 @@
     <!-- 分割线颜色-->
     <attr name="division_line" format="color" />
 
+    <!-- loadingView的属性 -->
+    <declare-styleable name="LoadingView">
+        <attr name="min_radius" format="integer" />
+        <attr name="max_radius" format="integer" />
+        <attr name="ballColor" format="color" />
+        <attr name="duration" format="integer" />
+        <attr name="internal" format="integer" />
+    </declare-styleable>
 </resources>

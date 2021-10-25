@@ -20,7 +20,7 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNav
  */
 class TabFragment : LazyVmFragment<FragmentTabBinding>() {
 
-    private lateinit var mState:TabVM
+    private lateinit var mState: TabVM
 
     /**
      * fragment 类型

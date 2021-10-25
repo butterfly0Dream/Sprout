@@ -1,6 +1,7 @@
 package com.jsx.sprout.ui.register
 
 import android.os.Bundle
+import android.view.View
 import com.jsx.applib.base.BaseVmFragment
 import com.jsx.applib.common.clickNoRepeat
 import com.jsx.applib.common.toast
@@ -50,7 +51,7 @@ class RegisterFragment : BaseVmFragment<FragmentRegisterBinding>() {
         binding.ivVisibilityAgain.clickNoRepeat {
             mState.rePassIsVisibility.set(!mState.rePassIsVisibility.get()!!)
         }
-        binding.btnRegister.clickNoRepeat {
+        binding.rlRegister.clickNoRepeat {
             if (mState.username.get()!!.isEmpty()) {
                 toast(getString(R.string.common_check_username))
                 return@clickNoRepeat
@@ -84,20 +85,20 @@ class RegisterFragment : BaseVmFragment<FragmentRegisterBinding>() {
      * 并且施加动画
      */
     private fun setViewStatus(lockStatus: Boolean) {
-        binding.btnRegister.isEnabled = lockStatus
+        binding.rlRegister.isEnabled = lockStatus
         binding.ivClose.isEnabled = lockStatus
         binding.etUsername.isEnabled = lockStatus
+        binding.ivClear.isEnabled = lockStatus
         binding.etPassword.isEnabled = lockStatus
         binding.etRePwd.isEnabled = lockStatus
         if (lockStatus) {
-//            binding.tvLoginTxt.visibility = View.VISIBLE
-//            binding.indicatorView.visibility = View.GONE
-//            binding.indicatorView.hide()
+            binding.tvLoginTxt.visibility = View.VISIBLE
+            binding.loadingView.visibility = View.GONE
+            binding.loadingView.hide()
         } else {
-            // TODO: 2021/10/14 显示注册中动画
-//            binding.tvLoginTxt.visibility = View.GONE
-//            binding.indicatorView.visibility = View.VISIBLE
-//            binding.indicatorView.show()
+            binding.tvLoginTxt.visibility = View.GONE
+            binding.loadingView.visibility = View.VISIBLE
+            binding.loadingView.show()
         }
     }
 

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.ScaleAnimation
 import androidx.activity.OnBackPressedCallback
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.children
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.viewModelScope
@@ -47,14 +48,14 @@ class SearchFragment : BaseVmFragment<FragmentSearchBinding>() {
         super.onCreate(savedInstanceState)
         //自定义返回
         val callback: OnBackPressedCallback =
-            object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    startSearchAnim(false)
-                    mState.viewModelScope.launch {
-                        back()
+                object : OnBackPressedCallback(true) {
+                    override fun handleOnBackPressed() {
+                        startSearchAnim(false)
+                        mState.viewModelScope.launch {
+                            back()
+                        }
                     }
                 }
-            }
         requireActivity().onBackPressedDispatcher.addCallback(this, callback)
     }
 
@@ -107,8 +108,8 @@ class SearchFragment : BaseVmFragment<FragmentSearchBinding>() {
         mAdapter = ArticleAdapter(activity).apply {
             setOnItemClickListener { i, _ ->
                 nav().navigate(
-                    R.id.action_search_fragment_to_web_fragment,
-                    this@SearchFragment.mAdapter.getBundle(i)
+                        R.id.action_search_fragment_to_web_fragment,
+                        this@SearchFragment.mAdapter.getBundle(i)
                 )
             }
             setOnItemChildClickListener { i, view ->
@@ -137,8 +138,18 @@ class SearchFragment : BaseVmFragment<FragmentSearchBinding>() {
         binding.smartRefresh.setOnLoadMoreListener {
             search(false)
         }
-        //editText获取焦点
-        binding.etSearch.requestFocus()
+        binding.etSearch.apply {
+            setOnFocusChangeListener { _, hasFocus ->
+                if (hasFocus) {
+                    binding.clSearch.background = ResourcesCompat.getDrawable(resources, R.drawable.radius_16_theme_2_focus, null)
+                } else {
+                    binding.clSearch.background = ResourcesCompat.getDrawable(resources, R.drawable.radius_16_theme_2, null)
+                }
+            }
+            //editText获取焦点
+            requestFocus()
+        }
+//        binding.etSearch.requestFocus()
         KeyBoardUtil.openKeyboard(binding.etSearch, activity)
         addListener()
     }

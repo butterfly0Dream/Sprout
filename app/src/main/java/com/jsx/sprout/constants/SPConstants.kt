@@ -16,10 +16,6 @@ object SPConstants {
      */
     const val USER_INFO = "userInfo"
     /**
-     * 用户积分信息
-     */
-    const val INTEGRAL_INFO = "integralInfo"
-    /**
      * 搜索历史
      */
     const val SEARCH_RECORD = "searchRecord"

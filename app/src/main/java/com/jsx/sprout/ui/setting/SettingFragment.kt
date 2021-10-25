@@ -64,11 +64,11 @@ class SettingFragment : BaseVmFragment<FragmentSettingBinding>() {
 
         }
         binding.tvLogout.clickNoRepeat {
-            if (!CacheUtil.isLogin()){
+            if (!CacheUtil.isLogin()) {
                 toast("请先登陆～")
                 return@clickNoRepeat
             }
-            DialogUtils.confirm(activity,"确定退出登录？"){
+            DialogUtils.confirm(activity, "确定退出登录？") {
                 mState.logout()
             }
         }

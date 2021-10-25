@@ -22,7 +22,7 @@ class SearchVM : BaseViewModel() {
     /**
      * 关键字，与搜索框保持一致
      */
-    val keyWord = ObservableField<String>("")
+    val keyWord = ObservableField("")
 
     /**
      * 搜索到的文章

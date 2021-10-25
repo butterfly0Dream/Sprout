@@ -1,6 +1,7 @@
 package com.jsx.sprout.ui.login
 
 import android.os.Bundle
+import android.view.View
 import com.jsx.applib.base.BaseVmFragment
 import com.jsx.applib.common.clickNoRepeat
 import com.jsx.applib.common.toast
@@ -58,7 +59,7 @@ class LoginFragment : BaseVmFragment<FragmentLoginBinding>() {
             loginVM.passIsVisibility.get()
             loginVM.passIsVisibility.set(!loginVM.passIsVisibility.get()!!)
         }
-        binding.btnLogin.clickNoRepeat {
+        binding.rlLogin.clickNoRepeat {
             if (loginVM.username.get()!!.isEmpty()){
                 toast(getString(R.string.common_check_username))
                 return@clickNoRepeat
@@ -87,20 +88,18 @@ class LoginFragment : BaseVmFragment<FragmentLoginBinding>() {
      * 并且施加动画
      */
     private fun setViewStatus(lockStatus:Boolean){
-        binding.btnLogin.isEnabled = lockStatus
+        binding.rlLogin.isEnabled = lockStatus
         binding.tvRegister.isEnabled = lockStatus
         binding.tvCancel.isEnabled = lockStatus
         binding.etUsername.isEnabled = lockStatus
+        binding.ivClear.isEnabled = lockStatus
         binding.etPassword.isEnabled = lockStatus
         if (lockStatus) {
-//            binding.tvLoginTxt.visibility = View.VISIBLE
-//            binding.indicatorView.visibility = View.GONE
-//            binding.indicatorView.hide()
+            binding.tvLoginTxt.visibility = View.VISIBLE
+            binding.loadingView.hide()
         }else {
-            // TODO: 2021/10/14 显示登录中动画
-//            binding.tvLoginTxt.visibility = View.GONE
-//            binding.indicatorView.visibility = View.VISIBLE
-//            binding.indicatorView.show()
+            binding.tvLoginTxt.visibility = View.GONE
+            binding.loadingView.show()
         }
     }
 
