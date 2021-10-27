@@ -106,14 +106,14 @@
             android:id="@+id/rl_login"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_marginTop="60dp"
             android:layout_marginLeft="50dp"
+            android:layout_marginTop="60dp"
             android:layout_marginRight="50dp"
             android:background="?attr/main_bg_2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_password"
-            app:layout_constraintWidth_percent="0.7" >
+            app:layout_constraintWidth_percent="0.7">
 
             <TextView
                 android:id="@+id/tvLoginTxt"
@@ -130,7 +130,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:ballColor="@color/purple_500"
-                app:max_radius="30"/>
+                app:max_radius="10dp" />
         </RelativeLayout>
 
         <TextView
@@ -144,5 +144,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rl_login" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/md_blue_100"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cancel">
+
+            <com.jsx.applib.view.CircleProgressView
+                android:id="@+id/cp_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:radius="50dp"
+                app:text_size="12sp" />
+        </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

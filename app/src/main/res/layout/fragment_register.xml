@@ -165,7 +165,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:ballColor="@color/purple_500"
-                app:max_radius="30"/>
+                app:max_radius="10dp"/>
         </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

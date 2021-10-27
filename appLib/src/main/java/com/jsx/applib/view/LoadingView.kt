@@ -44,13 +44,13 @@ class LoadingView @JvmOverloads constructor(
         val typeArray = this.context.obtainStyledAttributes(attrs, R.styleable.LoadingView)
         //获取自定义属性
         typeArray.apply {
-            maxRadius = getInt(R.styleable.LoadingView_max_radius, 30)
+            maxRadius = getDimensionPixelSize(R.styleable.LoadingView_max_radius, 30)
             if (maxRadius > 100) maxRadius = 100       //最大半径不超过100
-            minRadius = getInt(R.styleable.LoadingView_min_radius, 5)
+            minRadius = getDimensionPixelSize(R.styleable.LoadingView_min_radius, 5)
             if (minRadius < 1) minRadius = 1         //最小半径不小于1
             duration = getInt(R.styleable.LoadingView_duration, 1000)
             color = getColor(R.styleable.LoadingView_ballColor, Color.BLUE)
-            internal = getInt(R.styleable.LoadingView_internal, internal)
+            internal = getDimensionPixelSize(R.styleable.LoadingView_internal, internal)
         }
         typeArray.recycle()        //需要将TypedArray进行回收
 
@@ -96,8 +96,8 @@ class LoadingView @JvmOverloads constructor(
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         //val widthSpecMode = MeasureSpec.getMode(widthMeasureSpec)
-        val widthSpecSize = View.MeasureSpec.getSize(widthMeasureSpec)
-        val heightSpecMode = View.MeasureSpec.getMode(heightMeasureSpec)
+        val widthSpecSize = MeasureSpec.getSize(widthMeasureSpec)
+        val heightSpecMode = MeasureSpec.getMode(heightMeasureSpec)
         val heightSpecSize = MeasureSpec.getSize(heightMeasureSpec)
 
         //处理高度为wrap_content的情况，宽度如果为wrap_content时默认为屏幕宽度

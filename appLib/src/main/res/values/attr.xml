@@ -26,10 +26,18 @@
 
     <!-- loadingView的属性 -->
     <declare-styleable name="LoadingView">
-        <attr name="min_radius" format="integer" />
-        <attr name="max_radius" format="integer" />
+        <attr name="min_radius" format="dimension" />
+        <attr name="max_radius" format="dimension" />
         <attr name="ballColor" format="color" />
         <attr name="duration" format="integer" />
-        <attr name="internal" format="integer" />
+        <attr name="internal" format="dimension" />
+    </declare-styleable>
+
+    <!-- CircleProgressView的属性 -->
+    <declare-styleable name="CircleProgressView">
+        <attr name="radius" format="dimension" />
+        <attr name="color" format="color" />
+        <attr name="text_size" format="dimension" />
+        <attr name="text_color" format="color" />
     </declare-styleable>
 </resources>

@@ -69,8 +69,8 @@ class LoginFragment : BaseVmFragment<FragmentLoginBinding>() {
                 return@clickNoRepeat
             }
             //关闭软键盘
-            KeyBoardUtil.closeKeyboard(binding.etUsername,ctx)
-            KeyBoardUtil.closeKeyboard(binding.etPassword,ctx)
+            KeyBoardUtil.closeKeyboard(binding.etUsername, ctx)
+            KeyBoardUtil.closeKeyboard(binding.etPassword, ctx)
             login()
         }
         binding.tvCancel.clickNoRepeat {
@@ -78,16 +78,24 @@ class LoginFragment : BaseVmFragment<FragmentLoginBinding>() {
         }
     }
 
-    private fun login(){
+    var radio = 0.0f
+    private fun login() {
         setViewStatus(false)
         loginVM.login()
+
+//        radio += 0.111111f
+//        if (radio >= 1.0f) {
+//            radio = 0.11f
+//        }
+//        val total = 2500
+//        binding.cpView.setTexts("","${String.format("%.2f",radio * total)}MB","", radio)
     }
 
     /**
      * 登录时给具备点击事件的View上锁，登陆失败时解锁
      * 并且施加动画
      */
-    private fun setViewStatus(lockStatus:Boolean){
+    private fun setViewStatus(lockStatus: Boolean) {
         binding.rlLogin.isEnabled = lockStatus
         binding.tvRegister.isEnabled = lockStatus
         binding.tvCancel.isEnabled = lockStatus
@@ -97,7 +105,7 @@ class LoginFragment : BaseVmFragment<FragmentLoginBinding>() {
         if (lockStatus) {
             binding.tvLoginTxt.visibility = View.VISIBLE
             binding.loadingView.hide()
-        }else {
+        } else {
             binding.tvLoginTxt.visibility = View.GONE
             binding.loadingView.show()
         }
