@@ -61,6 +61,7 @@ class LoadingView @JvmOverloads constructor(
             duration = 1000
             addUpdateListener {
                 leftRadius = it.animatedValue as Int
+                invalidate()
             }
         }
 
@@ -72,6 +73,7 @@ class LoadingView @JvmOverloads constructor(
             startDelay = duration * 2 / 3    //延迟动画开始时间，这样就实现了三个小球不同步的变化
             addUpdateListener {
                 midRadius = it.animatedValue as Int
+                invalidate()
             }
         }
 
@@ -83,6 +85,7 @@ class LoadingView @JvmOverloads constructor(
             startDelay = duration * 4 / 3
             addUpdateListener {
                 rightRadius = it.animatedValue as Int
+                invalidate()
             }
         }
 
@@ -119,8 +122,6 @@ class LoadingView @JvmOverloads constructor(
             drawCircle((pivotX + internal).toFloat(), pivotY.toFloat(), midRadius.toFloat(), mPaint)
             drawCircle((pivotX - internal).toFloat(), pivotY.toFloat(), rightRadius.toFloat(), mPaint)
         }
-
-        invalidate()
     }
 
     fun show(){
