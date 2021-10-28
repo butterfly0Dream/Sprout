@@ -51,8 +51,9 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_marginStart="10dp"
-                android:src="@drawable/search"
+                android:contentDescription="@string/common_search"
                 android:padding="8dp"
+                android:src="@drawable/search"
                 app:layout_constraintBottom_toBottomOf="@+id/bg_search"
                 app:layout_constraintStart_toStartOf="@+id/bg_search"
                 app:layout_constraintTop_toTopOf="@+id/bg_search" />
@@ -75,6 +76,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/ripple_circle_bg"
+                android:contentDescription="@string/common_add_article"
                 android:padding="8dp"
                 android:src="@drawable/svg_add"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -87,7 +89,8 @@
             android:id="@+id/smart_refresh"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:visibility="gone">
 
             <com.scwang.smart.refresh.header.ClassicsHeader
                 android:layout_width="match_parent"
@@ -99,7 +102,8 @@
 
                 <com.google.android.material.appbar.AppBarLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent">
 
                     <cn.bingoogolapple.bgabanner.BGABanner
                         android:id="@+id/banner"
@@ -129,5 +133,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+        <com.jsx.applib.view.LoadingTip
+            android:id="@+id/loading_tip"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="visible" />
     </LinearLayout>
 </layout>

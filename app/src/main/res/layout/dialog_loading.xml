@@ -10,9 +10,9 @@
         android:id="@+id/progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:layout_marginStart="30dp"
         android:indeterminateTint="?attr/theme_color_3" />
 
     <TextView

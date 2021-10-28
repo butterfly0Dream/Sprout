@@ -43,6 +43,7 @@ class HomeFragment : LazyVmFragment<FragmentHomeBinding>(), BGABanner.Adapter<Im
 
     override fun initView() {
         binding.vm = mState
+        binding.loadingTip.setReloadListener { loadData() }
         //关闭更新动画
         (binding.rvList.itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false
         binding.smartRefresh.setOnRefreshListener {
@@ -88,15 +89,16 @@ class HomeFragment : LazyVmFragment<FragmentHomeBinding>(), BGABanner.Adapter<Im
         //自动刷新
         mState.getBanner()
         mState.getArticle()
-//        binding.loadingTip.loading()
+        binding.loadingTip.loading()
     }
 
     override fun observe() {
         //文章列表
         mState.articleList.observe(viewLifecycleOwner, {
+            binding.smartRefresh.visibility = View.VISIBLE
+            binding.loadingTip.dismiss()
             binding.smartRefresh.smartDismiss()
             adapter.submitList(it)
-//            binding.loadingTip.dismiss()
         })
         //banner
         mState.banner.observe(viewLifecycleOwner, {
@@ -106,6 +108,7 @@ class HomeFragment : LazyVmFragment<FragmentHomeBinding>(), BGABanner.Adapter<Im
         //请求错误
         mState.errorLiveData.observe(viewLifecycleOwner, {
             binding.smartRefresh.smartDismiss()
+            binding.loadingTip.showInternetError()
         })
     }
 
@@ -123,14 +126,24 @@ class HomeFragment : LazyVmFragment<FragmentHomeBinding>(), BGABanner.Adapter<Im
     }
 
 
-    override fun fillBannerItem(banner: BGABanner?, itemView: ImageView?, model: String?, position: Int) {
+    override fun fillBannerItem(
+        banner: BGABanner?,
+        itemView: ImageView?,
+        model: String?,
+        position: Int
+    ) {
         itemView?.apply {
             scaleType = ImageView.ScaleType.CENTER_CROP
             loadUrl(activity, bannerList?.get(position)?.imagePath!!)
         }
     }
 
-    override fun onBannerItemClick(banner: BGABanner?, itemView: ImageView?, model: String?, position: Int) {
+    override fun onBannerItemClick(
+        banner: BGABanner?,
+        itemView: ImageView?,
+        model: String?,
+        position: Int
+    ) {
         nav().navigate(R.id.action_main_fragment_to_web_fragment, Bundle().apply {
             bannerList?.get(position)?.let {
                 putString("loadUrl", it.url)

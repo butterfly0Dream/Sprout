@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Sprout</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="author">Fallgod</string>
 
     <string name="tab_home">首页</string>
     <string name="tab_project">项目</string>
@@ -35,9 +34,11 @@
     <string name="setting_project">项目</string>
     <string name="setting_copyright">版权声明</string>
     <string name="setting_logout">退出登录</string>
+    <string name="setting_mode_night">夜间模式</string>
 
     <string name="title_login">登录</string>
     <string name="title_register">注册</string>
+    <string name="common_default_number">0</string>
     <string name="common_hint_username">请输入账号</string>
     <string name="common_hint_password">请输入密码</string>
     <string name="common_hint_pwd_again">请再次输入密码</string>
@@ -45,4 +46,13 @@
     <string name="common_check_pwd">请填写密码</string>
     <string name="common_check_repwd">请填写确认密码</string>
     <string name="common_check_2pwd">两次输入密码不一致</string>
+    <string name="common_prompt">提示</string>
+    <string name="common_sure">确定</string>
+    <string name="common_cancel">取消</string>
+    <string name="common_back">返回</string>
+    <string name="common_clear">清除</string>
+    <string name="common_visible_pwd">密码可见性</string>
+    <string name="common_search">搜索</string>
+    <string name="common_add_article">发布文章</string>
+    <string name="common_close">关闭</string>
 </resources>

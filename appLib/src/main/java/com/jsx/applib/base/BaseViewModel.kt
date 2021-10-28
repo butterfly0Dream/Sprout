@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jsx.applib.BuildConfig
 import com.jsx.applib.common.toast
 import com.jsx.applib.http.ApiException
 import kotlinx.coroutines.CancellationException
@@ -79,10 +78,10 @@ open class BaseViewModel: ViewModel() {
             runCatching {
                 block()
             }.onFailure {
-                if (BuildConfig.DEBUG) {
-                    it.printStackTrace()
-                    return@onFailure
-                }
+//                if (BuildConfig.DEBUG) {
+//                    it.printStackTrace()
+//                    return@onFailure
+//                }
                 getApiException(it).apply {
                     withContext(Dispatchers.Main){
                         toast(errorMessage)

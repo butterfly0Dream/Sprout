@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vm"
             type="com.jsx.sprout.ui.setting.SettingVM" />
@@ -20,13 +21,15 @@
             android:layout_height="55dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:id="@+id/ivBack"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/ripple_circle_bg"
+                android:contentDescription="@string/common_back"
                 android:padding="15dp"
                 android:src="@drawable/svg_back" />
 
@@ -34,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="设置"
+                android:text="@string/mine_setting"
                 android:textColor="?attr/theme_color_1"
                 android:textSize="17sp"
                 android:textStyle="bold" />
@@ -50,7 +53,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="@dimen/padding"
             android:paddingRight="@dimen/padding"
-            android:text="夜间模式"
+            android:text="@string/setting_mode_night"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,10 +61,11 @@
             android:id="@+id/scDayNight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvNight"
+            android:layout_marginEnd="@dimen/padding"
             app:layout_constraintBottom_toBottomOf="@+id/tvNight"
-            android:layout_marginEnd="@dimen/padding"/>
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvNight" />
+
         <TextView
             android:id="@+id/tvClear"
             style="@style/text_1"
@@ -73,9 +77,9 @@
             android:paddingLeft="@dimen/padding"
             android:paddingRight="@dimen/padding"
             android:text="@string/setting_clear"
+            app:drawableRightCompat="@drawable/arrow_right"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvNight"
-            app:drawableRightCompat="@drawable/arrow_right" />
+            app:layout_constraintTop_toTopOf="@+id/tvNight" />
 
         <TextView
             android:id="@+id/tvClearValue"
@@ -99,8 +103,8 @@
             android:paddingLeft="@dimen/padding"
             android:paddingRight="@dimen/padding"
             android:text="@string/setting_edition"
-            app:layout_constraintTop_toBottomOf="@id/tvClear"
-            app:drawableRightCompat="@drawable/arrow_right" />
+            app:drawableRightCompat="@drawable/arrow_right"
+            app:layout_constraintTop_toBottomOf="@id/tvClear" />
 
         <TextView
             android:id="@+id/tvVersionValue"
@@ -109,10 +113,10 @@
             android:layout_height="60dp"
             android:layout_marginEnd="50dp"
             android:gravity="center_vertical"
-            tools:text="v 0.0.1"
             app:layout_constraintBottom_toBottomOf="@+id/tvVersion"
             app:layout_constraintRight_toRightOf="@+id/tvVersion"
-            app:layout_constraintTop_toTopOf="@+id/tvVersion" />
+            app:layout_constraintTop_toTopOf="@+id/tvVersion"
+            tools:text="v 0.0.1" />
 
         <TextView
             android:id="@+id/tvAuthor"
@@ -125,8 +129,8 @@
             android:paddingLeft="@dimen/padding"
             android:paddingRight="@dimen/padding"
             android:text="@string/setting_author"
-            app:layout_constraintTop_toBottomOf="@+id/tvVersion"
-            app:drawableRightCompat="@drawable/arrow_right" />
+            app:drawableRightCompat="@drawable/arrow_right"
+            app:layout_constraintTop_toBottomOf="@+id/tvVersion" />
 
         <TextView
             android:id="@+id/tvAuthorValue"
@@ -135,7 +139,7 @@
             android:layout_height="60dp"
             android:layout_marginEnd="50dp"
             android:gravity="center_vertical"
-            android:text="fallgod"
+            android:text="@string/author"
             app:layout_constraintBottom_toBottomOf="@+id/tvAuthor"
             app:layout_constraintRight_toRightOf="@+id/tvAuthor"
             app:layout_constraintTop_toTopOf="@+id/tvAuthor" />
@@ -150,8 +154,8 @@
             android:paddingLeft="@dimen/padding"
             android:paddingRight="@dimen/padding"
             android:text="@string/setting_project"
-            app:layout_constraintTop_toBottomOf="@+id/tvAuthor"
-            app:drawableRightCompat="@drawable/arrow_right" />
+            app:drawableRightCompat="@drawable/arrow_right"
+            app:layout_constraintTop_toBottomOf="@+id/tvAuthor" />
 
         <TextView
             android:id="@+id/tvCopyright"
@@ -163,8 +167,8 @@
             android:paddingLeft="@dimen/padding"
             android:paddingRight="@dimen/padding"
             android:text="@string/setting_copyright"
-            app:layout_constraintTop_toBottomOf="@+id/tvProject"
-            app:drawableRightCompat="@drawable/arrow_right" />
+            app:drawableRightCompat="@drawable/arrow_right"
+            app:layout_constraintTop_toBottomOf="@+id/tvProject" />
 
         <TextView
             android:id="@+id/tvLogout"

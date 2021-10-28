@@ -20,6 +20,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
             android:clickable="true"
+            android:contentDescription="@string/common_close"
             android:focusable="true"
             android:padding="5dp"
             android:src="@drawable/svg_clear"
@@ -45,8 +46,10 @@
             android:layout_marginLeft="@dimen/padding"
             android:layout_marginTop="50dp"
             android:layout_marginRight="@dimen/padding"
+            android:autofillHints="@string/common_hint_username"
             android:background="@null"
             android:hint="@string/common_hint_username"
+            android:inputType="text"
             android:text="@={vm.username}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,6 +59,7 @@
             android:id="@+id/iv_clear"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:contentDescription="@string/common_clear"
             android:padding="8dp"
             android:src="@drawable/svg_clear"
             app:layout_constraintBottom_toBottomOf="@+id/et_username"
@@ -78,8 +82,10 @@
             android:layout_marginLeft="@dimen/padding"
             android:layout_marginTop="15dp"
             android:layout_marginRight="@dimen/padding"
+            android:autofillHints="@string/common_hint_password"
             android:background="@null"
             android:hint="@string/common_hint_password"
+            android:inputType="textPassword"
             android:text="@={vm.password}"
             android:textColor="?attr/theme_color_1"
             app:layout_constraintTop_toBottomOf="@+id/et_username" />
@@ -89,6 +95,7 @@
             passSrc="@{vm.passIsVisibility}"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:contentDescription="@string/common_visible_pwd"
             android:padding="8dp"
             android:src="@drawable/selector_pass"
             app:layout_constraintBottom_toBottomOf="@+id/et_password"
@@ -111,8 +118,10 @@
             android:layout_marginLeft="@dimen/padding"
             android:layout_marginTop="15dp"
             android:layout_marginRight="@dimen/padding"
+            android:autofillHints="@string/common_hint_pwd_again"
             android:background="@null"
             android:hint="@string/common_hint_pwd_again"
+            android:inputType="textPassword"
             android:text="@={vm.rePassword}"
             android:textColor="?attr/theme_color_1"
             app:layout_constraintTop_toBottomOf="@+id/et_password" />
@@ -122,6 +131,7 @@
             passSrc="@{vm.rePassIsVisibility}"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:contentDescription="@string/common_visible_pwd"
             android:padding="8dp"
             android:src="@drawable/selector_pass"
             app:layout_constraintBottom_toBottomOf="@+id/et_re_pwd"
@@ -141,14 +151,14 @@
             android:id="@+id/rl_register"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_marginTop="60dp"
             android:layout_marginLeft="50dp"
+            android:layout_marginTop="60dp"
             android:layout_marginRight="50dp"
             android:background="?attr/main_bg_2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_re_pwd"
-            app:layout_constraintWidth_percent="0.7"  >
+            app:layout_constraintWidth_percent="0.7">
 
             <TextView
                 android:id="@+id/tvLoginTxt"
@@ -165,7 +175,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:ballColor="@color/purple_500"
-                app:max_radius="10dp"/>
+                app:max_radius="10dp" />
         </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

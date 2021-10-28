@@ -1,6 +1,5 @@
 package com.jsx.sprout
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.jsx.applib.callback.UnPeekLiveData
 

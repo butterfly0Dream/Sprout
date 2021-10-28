@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vm"
             type="com.jsx.sprout.ui.main.mine.MineVM" />
@@ -29,7 +30,8 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/head"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/tvName"
@@ -73,7 +75,7 @@
                     android:id="@+id/tvHistory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
+                    android:text="@string/common_default_number"
                     android:textColor="?attr/theme_color_1"
                     android:textSize="@dimen/text_1"
                     android:textStyle="bold" />
@@ -138,7 +140,8 @@
                     android:src="@drawable/score"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     style="@style/text_1"
@@ -148,9 +151,9 @@
                     android:layout_marginStart="40dp"
                     android:text="@string/mine_score"
                     android:textStyle="bold"
+                    app:drawableEndCompat="@drawable/arrow_right"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:drawableEndCompat="@drawable/arrow_right"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
                 <TextView
@@ -200,7 +203,8 @@
                     android:src="@drawable/collect"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     style="@style/text_1"
@@ -210,9 +214,9 @@
                     android:layout_marginStart="40dp"
                     android:text="@string/mine_collection"
                     android:textStyle="bold"
+                    app:drawableEndCompat="@drawable/arrow_right"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:drawableEndCompat="@drawable/arrow_right"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -234,7 +238,8 @@
                     android:src="@drawable/my_article"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     style="@style/text_1"
@@ -244,9 +249,9 @@
                     android:layout_marginStart="40dp"
                     android:text="@string/mine_article"
                     android:textStyle="bold"
+                    app:drawableEndCompat="@drawable/arrow_right"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:drawableEndCompat="@drawable/arrow_right" />
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
@@ -274,7 +279,8 @@
                     android:src="@drawable/website"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     style="@style/text_1"
@@ -284,9 +290,9 @@
                     android:layout_marginStart="40dp"
                     android:text="@string/mine_website"
                     android:textStyle="bold"
+                    app:drawableEndCompat="@drawable/arrow_right"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:drawableEndCompat="@drawable/arrow_right" />
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -307,7 +313,8 @@
                     android:src="@drawable/set"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     style="@style/text_1"
@@ -317,9 +324,9 @@
                     android:layout_marginStart="40dp"
                     android:text="@string/mine_setting"
                     android:textStyle="bold"
+                    app:drawableEndCompat="@drawable/arrow_right"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:drawableEndCompat="@drawable/arrow_right" />
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
