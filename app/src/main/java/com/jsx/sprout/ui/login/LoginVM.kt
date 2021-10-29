@@ -3,7 +3,6 @@ package com.jsx.sprout.ui.login
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import com.jsx.applib.base.BaseViewModel
-import com.jsx.applib.base.BaseVmFragment
 
 /**
  * Author: JackPan
@@ -40,10 +39,10 @@ class LoginVM : BaseViewModel() {
      * 登陆
      */
     val loginLiveData = MutableLiveData<UserBean>()
-    fun login(){
+    fun login() {
         launch {
             loginLiveData.value = repo.login(username.get()!!, password.get()!!)
         }
+//        launch (suspend { loginLiveData.value = repo.login(username.get()!!, password.get()!!) })
     }
-
 }
