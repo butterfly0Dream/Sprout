@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="vm"
             type="com.jsx.sprout.ui.setting.SettingVM" />
@@ -17,6 +19,7 @@
         android:fitsSystemWindows="true">
 
         <LinearLayout
+            android:id="@+id/ll_bar"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:gravity="center_vertical"
@@ -48,14 +51,13 @@
             style="@style/text_1"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="58dp"
             android:background="@drawable/ripple_bg"
             android:gravity="center_vertical"
             android:paddingLeft="@dimen/padding"
             android:paddingRight="@dimen/padding"
             android:text="@string/setting_mode_night"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/ll_bar" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/scDayNight"
@@ -67,19 +69,85 @@
             app:layout_constraintTop_toTopOf="@+id/tvNight" />
 
         <TextView
+            android:id="@+id/tv_language"
+            style="@style/text_1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/ripple_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/padding"
+            android:paddingRight="@dimen/padding"
+            android:text="@string/setting_language"
+            app:drawableRightCompat="@drawable/arrow_right"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvNight" />
+
+        <TextView
+            android:id="@+id/tv_language_value"
+            style="@style/text_2"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginEnd="50dp"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_language"
+            app:layout_constraintRight_toRightOf="@+id/tv_language"
+            app:layout_constraintTop_toTopOf="@+id/tv_language"
+            tools:text="中文" />
+
+        <TextView
+            android:id="@+id/tv_system"
+            style="@style/text_1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#CACACA"
+            android:gravity="center"
+            android:paddingLeft="@dimen/padding"
+            android:paddingRight="@dimen/padding"
+            android:text="@string/language_system"
+            app:layout_constraintTop_toBottomOf="@+id/tv_language" />
+
+        <TextView
+            android:id="@+id/tv_zh"
+            style="@style/text_1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#CACACA"
+            android:gravity="center"
+            android:paddingLeft="@dimen/padding"
+            android:paddingRight="@dimen/padding"
+            android:text="@string/language_zh"
+            app:layout_constraintTop_toBottomOf="@+id/tv_system" />
+
+        <TextView
+            android:id="@+id/tv_en"
+            style="@style/text_1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#CACACA"
+            android:gravity="center"
+            android:paddingLeft="@dimen/padding"
+            android:paddingRight="@dimen/padding"
+            android:text="@string/language_en"
+            app:layout_constraintTop_toBottomOf="@+id/tv_zh" />
+
+        <androidx.constraintlayout.widget.Group
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{vm.languageItemVisible ? View.VISIBLE : View.GONE}"
+            app:constraint_referenced_ids="tv_zh, tv_en, tv_system" />
+
+        <TextView
             android:id="@+id/tvClear"
             style="@style/text_1"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="58dp"
             android:background="@drawable/ripple_bg"
             android:gravity="center_vertical"
             android:paddingLeft="@dimen/padding"
             android:paddingRight="@dimen/padding"
             android:text="@string/setting_clear"
             app:drawableRightCompat="@drawable/arrow_right"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvNight" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_en" />
 
         <TextView
             android:id="@+id/tvClearValue"

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tip_no_data">No data</string>
+    <string name="tip_click_refresh">Please click refresh</string>
+</resources>

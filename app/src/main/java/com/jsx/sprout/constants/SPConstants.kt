@@ -23,4 +23,8 @@ object SPConstants {
      * 用户积分信息
      */
     const val SCORE_INFO = "scoreInfo"
+    /**
+     * 语言
+     */
+    const val LANGUAGE = "language"
 }

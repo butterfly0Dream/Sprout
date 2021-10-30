@@ -30,7 +30,7 @@ class MainFragment : BaseVmFragment<FragmentMainBinding>() {
     private val projectFragment by lazy {
         TabFragment().apply {
             arguments = Bundle().apply {
-                putInt("type", Constants.TAB_PROJECT)
+                putInt(Constants.TAB_TYPE, Constants.TAB_PROJECT)
             }
         }
     }
@@ -41,7 +41,7 @@ class MainFragment : BaseVmFragment<FragmentMainBinding>() {
     private val publicNumberFragment by lazy {
         TabFragment().apply {
             arguments = Bundle().apply {
-                putInt("type",Constants.TAB_WXARTICLE)
+                putInt(Constants.TAB_TYPE,Constants.TAB_WXARTICLE)
             }
         }
     }

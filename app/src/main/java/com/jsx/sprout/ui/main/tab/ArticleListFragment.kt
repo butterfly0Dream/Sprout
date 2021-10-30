@@ -8,6 +8,7 @@ import com.jsx.applib.common.smartDismiss
 import com.jsx.applib.utils.Param
 import com.jsx.sprout.R
 import com.jsx.sprout.common.ArticleAdapter
+import com.jsx.sprout.constants.Constants
 import com.jsx.sprout.databinding.FragmentArticleBinding
 import com.jsx.sprout.utils.CacheUtil
 
@@ -24,13 +25,13 @@ class ArticleListFragment : BaseVmFragment<FragmentArticleBinding>() {
     /**
      * fragment类型，项目或公号
      */
-    @Param(value = "type")
+    @Param(value = Constants.ARTICLE_TYPE)
     private var mType = 0
 
     /**
      * tab的id
      */
-    @Param(value = "tabId")
+    @Param(value = Constants.ARTICLE_ID)
     private var mTabId = 0
 
     /**

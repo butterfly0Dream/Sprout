@@ -7,6 +7,7 @@ import com.jsx.applib.common.initFragment
 import com.jsx.applib.utils.Param
 import com.jsx.sprout.R
 import com.jsx.sprout.common.TabNavigatorAdapter
+import com.jsx.sprout.constants.Constants
 import com.jsx.sprout.databinding.FragmentTabBinding
 import com.jsx.sprout.view.MagicIndicatorUtils
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
@@ -25,7 +26,7 @@ class TabFragment : LazyVmFragment<FragmentTabBinding>() {
     /**
      * fragment 类型
      */
-    @Param(value = "type")
+    @Param(value = Constants.TAB_TYPE)
     private var mType = 0
 
     override fun lazyInit() {
@@ -55,9 +56,9 @@ class TabFragment : LazyVmFragment<FragmentTabBinding>() {
                 add(ArticleListFragment().apply {
                     //想各个fragment传递信息
                     val bundle = Bundle()
-                    bundle.putInt("type", mType)
-                    bundle.putInt("tabId", it.id)
-                    bundle.putString("name", it.name)
+                    bundle.putInt(Constants.ARTICLE_TYPE, mType)
+                    bundle.putInt(Constants.ARTICLE_ID, it.id)
+                    bundle.putString(Constants.ARTICLE_NAME, it.name)
                     arguments = bundle
                 })
             }

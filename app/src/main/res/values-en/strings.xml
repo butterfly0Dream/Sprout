@@ -2,10 +2,10 @@
     <string name="app_name">Sprout</string>
     <string name="author">Fallgod</string>
 
-    <string name="tab_home">首页</string>
-    <string name="tab_project">项目</string>
-    <string name="tab_wx">公众号</string>
-    <string name="tab_mine">我的</string>
+    <string name="tab_home">Home</string>
+    <string name="tab_project">Project</string>
+    <string name="tab_wx">Wx</string>
+    <string name="tab_mine">Mine</string>
     <string name="title_score">积分</string>
     <string name="title_collect">收藏</string>
 

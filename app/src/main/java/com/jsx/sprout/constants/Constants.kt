@@ -23,6 +23,10 @@ object Constants {
     const val ITEM_ARTICLE_PIC = 20
 
     /**
+     * tab_type
+     */
+    const val TAB_TYPE = "type"
+    /**
      * 项目/公众号公用一套逻辑。项目标记
      */
     const val TAB_PROJECT= 10
@@ -38,4 +42,18 @@ object Constants {
      * webView 标题
      */
     const val WEB_TITLE = "title"
+
+    /**
+     * ArticleList页面参数
+     */
+    const val ARTICLE_TYPE = "type"
+    const val ARTICLE_ID = "tabId"
+    const val ARTICLE_NAME = "name"
+
+    /**
+     * 语言
+     */
+    const val LANG_SYS = "system"
+    const val LANG_ZH = "zh"
+    const val LANG_EN = "en"
 }

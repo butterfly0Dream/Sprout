@@ -39,7 +39,7 @@ class MineFragment : LazyVmFragment<FragmentMineBinding>() {
             if (it) {
                 mState.getScore()
             } else {
-                mState.username.set("请先登录")
+                mState.username.set(resources.getString(R.string.common_no_login))
                 mState.id.set("---")
                 mState.rank.set("0")
                 mState.internal.set("0")
@@ -77,14 +77,14 @@ class MineFragment : LazyVmFragment<FragmentMineBinding>() {
             if (CacheUtil.isLogin()) {
                 nav().navigate(R.id.action_main_fragment_to_score_fragment)
             } else {
-                toast("请先登录")
+                toast(resources.getString(R.string.common_no_login))
             }
         }
         binding.clCollect.clickNoRepeat {
             if (CacheUtil.isLogin()) {
                 nav().navigate(R.id.action_main_fragment_to_collect_fragment)
             } else {
-                toast("请先登录")
+                toast(resources.getString(R.string.common_no_login))
             }
         }
 //        binding.clArticle.clickNoRepeat {

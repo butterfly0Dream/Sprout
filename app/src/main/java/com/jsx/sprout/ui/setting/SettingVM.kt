@@ -1,5 +1,6 @@
 package com.jsx.sprout.ui.setting
 
+import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import com.jsx.applib.base.BaseViewModel
 
@@ -10,6 +11,11 @@ import com.jsx.applib.base.BaseViewModel
  * Description:
  */
 class SettingVM : BaseViewModel() {
+
+    /**
+     * 语言子项是否隐藏
+     */
+    val languageItemVisible = ObservableField<Boolean>()
 
     private val mRepo by lazy { SettingRepo() }
 
