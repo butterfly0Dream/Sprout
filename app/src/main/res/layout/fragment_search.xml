@@ -15,7 +15,6 @@
         android:layout_height="match_parent"
         android:background="?attr/main_bg_1"
         android:elevation="6dp"
-        android:fitsSystemWindows="true"
         tools:context=".ui.search.SearchFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout

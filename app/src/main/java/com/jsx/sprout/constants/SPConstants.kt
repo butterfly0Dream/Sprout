@@ -27,4 +27,8 @@ object SPConstants {
      * 语言
      */
     const val LANGUAGE = "language"
+    /**
+     * 是否主动开启黑夜模式
+     */
+    const val DARK_MODE = "is_dark_mode"
 }

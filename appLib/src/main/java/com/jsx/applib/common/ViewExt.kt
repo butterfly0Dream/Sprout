@@ -2,15 +2,10 @@ package com.jsx.applib.common
 
 import android.content.Context
 import android.content.res.TypedArray
-import android.os.Parcelable
-import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentStatePagerAdapter
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.scwang.smart.refresh.layout.SmartRefreshLayout

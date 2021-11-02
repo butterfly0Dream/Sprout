@@ -43,7 +43,7 @@ class SettingFragment : BaseVmFragment<FragmentSettingBinding>() {
 
     override fun init(savedInstanceState: Bundle?) {
         binding.vm = mState
-//        setNightMode()
+        setNightMode()
     }
 
     override fun onClick() {
@@ -127,6 +127,21 @@ class SettingFragment : BaseVmFragment<FragmentSettingBinding>() {
             DialogUtils.confirm(activity, resources.getString(R.string.common_logout_confirm)) {
                 mState.logout()
             }
+        }
+    }
+
+    /**
+     * 却换夜间/白天模式
+     */
+    private fun setNightMode() {
+        val theme = SPUtils.getBoolean(SPConstants.DARK_MODE,false)
+        binding.scDayNight.isChecked = theme
+        //不能用切换监听,否则会递归
+        binding.scDayNight.clickNoRepeat {
+            it.isSelected = !theme
+            SPUtils.setBoolean(SPConstants.DARK_MODE, it.isSelected)
+            // TODO: 2021/11/2  recreate时，activity会闪烁。
+            activity.recreate()
         }
     }
 

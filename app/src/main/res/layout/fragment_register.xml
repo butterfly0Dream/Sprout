@@ -11,7 +11,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="?attr/main_bg_1">
 
         <ImageView
             android:id="@+id/iv_close"
@@ -174,7 +175,7 @@
                 android:id="@+id/loading_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:ballColor="@color/purple_500"
+                app:ballColor="@color/white"
                 app:max_radius="10dp" />
         </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.jsx.applib.base
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
@@ -22,6 +23,7 @@ abstract class BaseVmActivity : AppCompatActivity() {
         getLayoutId()?.let { setContentView(it) }
         setSystemInvadeBlack()
         setStatusColor()
+        setNavigationBarColor()
         initViewModel()
         observe()
         init(savedInstanceState)
@@ -55,12 +57,24 @@ abstract class BaseVmActivity : AppCompatActivity() {
 //        StatusUtils.setUseStatusBarColor(this, ColorUtils.parseColor("#00ffffff"))
     }
 
+    open fun setNavigationBarColor(){
+    }
+
     /**
      * 沉浸式状态
      */
     open fun setSystemInvadeBlack() {
+        val isBlack = !isDarkTheme()
         //第二个参数是是否沉浸,第三个参数是状态栏字体是否为黑色。
-        StatusUtils.setSystemStatus(this, true, true)
+        StatusUtils.setSystemStatus(this, true, isBlack)
+    }
+
+    /**
+     * 当前是否是深色主题
+     */
+    fun isDarkTheme():Boolean{
+        val flag = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        return flag == Configuration.UI_MODE_NIGHT_YES
     }
 
     /**

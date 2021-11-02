@@ -20,16 +20,17 @@ object LanguageUtils {
 
     // 该方法用于bnt或radioBnt随时切换语言时调用，无返回
     fun changeAppLanguage(context: Context = BaseApp.getContext(), language: String){
-        if (language == "") {
+        if (language.isEmpty()) {
             return
         }
-        val resources: Resources = context.resources
-        val config: Configuration = resources.configuration
-        // 获得屏幕参数：主要是分辨率，像素等。
-        val dm: DisplayMetrics = resources.displayMetrics
-        // 切换语言
-        config.setLocale(getLocaleByLanguage(language))
-        resources.updateConfiguration(config, dm)
+//        val resources: Resources = context.resources
+//        val config: Configuration = resources.configuration
+//        // 获得屏幕参数：主要是分辨率，像素等。
+//        val dm: DisplayMetrics = resources.displayMetrics
+//        // 切换语言
+//        config.setLocale(getLocaleByLanguage(language))
+//        resources.updateConfiguration(config, dm)
+        changeAppLanguage(context, getLocaleByLanguage(language))
     }
 
     fun changeAppLanguage(context: Context = BaseApp.getContext(), locale: Locale){

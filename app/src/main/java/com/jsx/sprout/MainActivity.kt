@@ -30,7 +30,24 @@ class MainActivity : BaseVmActivity() {
         super.attachBaseContext(context)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        changeTheme()
+        super.onCreate(savedInstanceState)
+    }
+
     override fun init(savedInstanceState: Bundle?) {
+    }
+
+    /**
+     * 动态切换主题
+     */
+    private fun changeTheme() {
+        val theme = SPUtils.getBoolean(SPConstants.DARK_MODE, false)
+        if (theme) {
+            setTheme(R.style.AppTheme_Night)
+        } else {
+            setTheme(R.style.AppTheme)
+        }
     }
 
     override fun getLayoutId() = R.layout.activity_main

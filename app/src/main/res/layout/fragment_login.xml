@@ -12,6 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/main_bg_1"
         android:padding="15dp">
 
         <TextView
@@ -32,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/title_register"
-            android:textColor="@color/purple_200"
+            android:textColor="@color/red"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_login" />
@@ -135,7 +136,7 @@
                 android:id="@+id/loading_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:ballColor="@color/purple_500"
+                app:ballColor="@color/white"
                 app:max_radius="10dp" />
         </RelativeLayout>
 
@@ -145,7 +146,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:text="@string/login_not_login"
-            android:textColor="@color/purple_200"
+            android:textColor="@color/red"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

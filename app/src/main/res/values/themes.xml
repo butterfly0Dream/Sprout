@@ -10,7 +10,7 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+<!--        <item name="android:statusBarColor" tools:targetApi="l">@color/transparent</item>-->
         <!-- Customize your theme here. -->
         <item name="android:navigationBarColor">#ffffff</item>
 
@@ -23,6 +23,31 @@
         <item name="theme_color_3">#999999</item>
 
         <item name="division_line">#EDEDED</item>
+    </style>
+
+    <style name="AppTheme_Night" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <!--        <item name="android:statusBarColor" tools:targetApi="l">@color/transparent</item>-->
+        <!-- Customize your theme here. -->
+        <item name="android:navigationBarColor">?attr/main_bg_1</item>
+
+        <item name="main_bg_1">#2C2C2C</item>
+        <item name="main_bg_2">#FA3C3C3C</item>
+        <item name="main_bg_3">#5E5E5E</item>
+
+        <item name="theme_color_1">#BDBDBD</item>
+        <item name="theme_color_2">#939393</item>
+        <item name="theme_color_3">#737272</item>
+
+        <item name="division_line">#424242</item>
     </style>
 
     <style name="SplashTheme" parent="AppTheme">
