@@ -12,7 +12,7 @@ object ThirdParty {
     // 轮播图
     const val banner = "com.github.bingoogolapple:BGABanner-Android:3.0.1"
     // RecyclerViewAdapter
-    const val baseQuickAdapter = "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4"
+    const val baseQuickAdapter = "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6"
     // viewpager指示器
     const val magicIndicator = "com.github.hackware1993:MagicIndicator:1.7.0"
     // 标签列表
@@ -32,7 +32,7 @@ object SmartRefresh {
 }
 
 object Glide {
-    private const val version = "4.11.0"
+    private const val version = "4.12.0"
     const val glide = "com.github.bumptech.glide:glide:$version"
     // Glide Transformations
     const val transformations = "jp.wasabeef:glide-transformations:4.3.0"

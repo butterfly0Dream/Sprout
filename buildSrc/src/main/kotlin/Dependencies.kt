@@ -29,6 +29,8 @@ object Dependencies {
 object AndroidTestingLib {
     const val testExt = "androidx.test.ext:junit:${Versions.ANDROIDX_TEST_EXT}"
     const val testEspresso = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO_CORE}"
+    const val testRunner = "androidx.test:runner:1.4.0"
+    const val testRules = "androidx.test:rules:1.4.0"
 }
 
 object Navigation {

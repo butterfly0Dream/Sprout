@@ -94,7 +94,7 @@ class SettingFragment : BaseVmFragment<FragmentSettingBinding>() {
 //                // 结束当前页面，重启至首页，以刷新显示修改后的语言
 //                finish()
 //                val it = Intent(this, MainActivity::class.java)
-//                // 清空任务栈确保当前打开activit为前台任务栈栈顶
+//                // 清空任务栈确保当前打开activity为前台任务栈栈顶
 //                // Intent.FLAG_ACTIVITY_CLEAR_TASK需搭配Intent.FLAG_ACTIVITY_NEW_TASK食用
 //                it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 //                startActivity(it)
