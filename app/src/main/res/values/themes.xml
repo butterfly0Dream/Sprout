@@ -23,6 +23,9 @@
         <item name="theme_color_3">#999999</item>
 
         <item name="division_line">#EDEDED</item>
+
+        <!--点击波纹颜色-->
+        <item name="ripple_gray">#999999</item>
     </style>
 
     <style name="AppTheme_Night" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -48,6 +51,9 @@
         <item name="theme_color_3">#737272</item>
 
         <item name="division_line">#424242</item>
+
+        <!--点击波纹颜色-->
+        <item name="ripple_gray">#BDBDBD</item>
     </style>
 
     <style name="SplashTheme" parent="AppTheme">
