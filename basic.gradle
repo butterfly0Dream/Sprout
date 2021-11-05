@@ -8,6 +8,12 @@ android {
     defaultConfig {
         minSdkVersion Version.minSdkVersion
         targetSdkVersion Version.targetSdkVersion
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation":
+                                      "$projectDir/schemas".toString()]
+            }
+        }
     }
 
     buildTypes {

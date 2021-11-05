@@ -14,6 +14,11 @@ import com.jsx.sprout.bean.ArticleListBean
 import com.jsx.sprout.constants.Constants
 import com.jsx.sprout.databinding.ItemHomeArticleBinding
 import com.jsx.sprout.databinding.ItemProjectBinding
+import com.jsx.sprout.db.AppDatabase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 
 /**
  * Author: JackPan
@@ -22,6 +27,8 @@ import com.jsx.sprout.databinding.ItemProjectBinding
  * Description:
  */
 class ArticleAdapter(private val context: Context) : ListAdapter<ArticleListBean, RecyclerView.ViewHolder>(getArticleDiff()) {
+
+    private val ioScope = CoroutineScope(Dispatchers.IO + SupervisorJob())
 
     /**
      * item点击事件
@@ -77,6 +84,14 @@ class ArticleAdapter(private val context: Context) : ListAdapter<ArticleListBean
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         holder.itemView.clickNoRepeat {
             onItemClickListener?.invoke(position, it)
+            // 插入一条浏览历史数据
+            ioScope.launch {
+                val browseHistoryDao = AppDatabase.getInstance().browseHistoryDao()
+                val data = getItem(position)
+                if (browseHistoryDao.getArticle(data.id) == null) {
+                    browseHistoryDao.insert(data)
+                }
+            }
         }
         //收藏
         holder.itemView.findViewById<View>(R.id.iv_collect)?.clickNoRepeat {

@@ -6,6 +6,7 @@ apply from: "../basic.gradle"
 
 dependencies {
     api project(':appLib')
+    kapt(Room.compiler)
 
     testImplementation(Dependencies.junit)
     androidTestImplementation(AndroidTestingLib.testExt)

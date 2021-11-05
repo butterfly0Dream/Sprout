@@ -34,6 +34,11 @@ class MineFragment : LazyVmFragment<FragmentMineBinding>() {
         mState.getScore()
     }
 
+    override fun onResume() {
+        super.onResume()
+        mState.getHistoryCount()
+    }
+
     override fun observe() {
         mEvent.loginState.observe(this, {
             if (it) {
@@ -56,9 +61,9 @@ class MineFragment : LazyVmFragment<FragmentMineBinding>() {
                 nav().navigate(R.id.action_main_fragment_to_login_fragment)
             }
         }
-//        binding.llHistory.clickNoRepeat {
-//            nav().navigate(R.id.action_main_fragment_to_history_fragment)
-//        }
+        binding.llHistory.clickNoRepeat {
+            nav().navigate(R.id.action_main_fragment_to_history_fragment)
+        }
 //        binding.llRanking.clickNoRepeat {
 //            if (CacheUtil.isLogin()) {
 //                val integralBean = mState.scoreLiveData?.value

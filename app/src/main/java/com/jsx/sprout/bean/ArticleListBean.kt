@@ -3,6 +3,9 @@ package com.jsx.sprout.bean
 import android.os.Build
 import android.text.Html
 import android.text.TextUtils
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.jsx.sprout.constants.Constants
 import com.jsx.sprout.ui.collect.CollectBean
@@ -13,53 +16,55 @@ import com.jsx.sprout.ui.collect.CollectBean
  * Time: 18:05
  * Description:
  */
+@Entity(tableName = "browse_history")
 data class ArticleListBean(
-    var id: Int = 0,
+    @PrimaryKey(autoGenerate = true) val uid: Int,
+    @ColumnInfo(name = "id") var id: Int = 0,
 
     /**
      * 作者
      */
-    var author: String? = null,
+    @ColumnInfo(name = "author") var author: String? = null,
 
     /**
      * 是否收藏
      */
-    var collect: Boolean = false,
+    @ColumnInfo(name = "collect") var collect: Boolean = false,
 
     /**
      * 描述信息
      */
-    var desc: String? = null,
+    @ColumnInfo(name = "desc") var desc: String? = null,
 
     /**
      * 图片类型，有和无
      */
-    var picUrl: String? = null,
+    @ColumnInfo(name = "picUrl") var picUrl: String? = null,
 
     /**
      * 链接
      */
-    var link: String? = null,
+    @ColumnInfo(name = "link") var link: String? = null,
 
     /**
      * 日期
      */
-    var date: String? = null,
+    @ColumnInfo(name = "date") var date: String? = null,
 
     /**
      * 标题
      */
-    var title: String? = null,
+    @ColumnInfo(name = "title") var title: String? = null,
 
     /**
      * 文章标签
      */
-    var articleTag: String? = null,
+    @ColumnInfo(name = "articleTag") var articleTag: String? = null,
 
     /**
      * 1.置顶
      */
-    var topTitle: String? = null
+    @ColumnInfo(name = "topTitle") var topTitle: String? = null
 ) : MultiItemEntity {
 
     override val itemType: Int
@@ -76,7 +81,7 @@ data class ArticleListBean(
     companion object {
         fun trans(list: MutableList<ArticleBean.DatasBean>): MutableList<ArticleListBean> {
             return list.map {
-                ArticleListBean().apply {
+                ArticleListBean(0).apply {
                     id = it.id
                     author = if (TextUtils.isEmpty(it.author)) {
                         it.shareUser
@@ -101,7 +106,7 @@ data class ArticleListBean(
 
         fun transByCollect(list: MutableList<CollectBean.DatasBean>): MutableList<ArticleListBean> {
             return list.map {
-                ArticleListBean().apply {
+                ArticleListBean(0).apply {
                     id = it.originId
                     author = it.author
                     collect = true

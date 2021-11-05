@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.jsx.applib.base.BaseViewModel
 import com.jsx.applib.utils.SPUtils
 import com.jsx.sprout.constants.SPConstants
+import com.jsx.sprout.ui.main.history.HistoryRepo
 import com.jsx.sprout.utils.CacheUtil
 
 /**
@@ -15,6 +16,16 @@ import com.jsx.sprout.utils.CacheUtil
  */
 class MineVM : BaseViewModel() {
 
+    private val mRepo by lazy { MineRepo() }
+    private val historyRepo by lazy { HistoryRepo() }
+    val scoreLiveData = MutableLiveData<ScoreBean>()
+
+    /**
+     * 文章列表
+     */
+    val count = ObservableField<String>().apply {
+        set("0")
+    }
     /**
      * 用户名
      */
@@ -43,8 +54,11 @@ class MineVM : BaseViewModel() {
         set("0")
     }
 
-    private val mRepo by lazy { MineRepo() }
-    val scoreLiveData = MutableLiveData<ScoreBean>()
+    fun getHistoryCount(){
+        launch {
+            count.set(historyRepo.getCount().toString())
+        }
+    }
 
     fun getScore() {
         launch {

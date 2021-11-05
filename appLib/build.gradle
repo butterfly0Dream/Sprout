@@ -14,6 +14,8 @@ dependencies {
     api(Navigation.fragmentKtx)
     api(Navigation.uiKtx)
     api(Dependencies.recyclerview)
+    api(Room.runtime)
+    api(Room.ktx)
 
     api(ThirdParty.okhttp)
     api(ThirdParty.cookieJar)

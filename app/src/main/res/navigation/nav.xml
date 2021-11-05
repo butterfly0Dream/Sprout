@@ -39,6 +39,10 @@
         <action
             android:id="@+id/action_main_fragment_to_score_fragment"
             app:destination="@+id/score_fragment" />
+        <!--历史-->
+        <action
+            android:id="@+id/action_main_fragment_to_history_fragment"
+            app:destination="@+id/history_fragment" />
     </fragment>
 
     <fragment
@@ -107,5 +111,19 @@
         android:name="com.jsx.sprout.ui.score.ScoreFragment"
         android:label="ScoreFragment"
         tools:layout="@layout/fragment_score" />
+
+    <fragment
+        android:id="@+id/history_fragment"
+        android:name="com.jsx.sprout.ui.main.history.HistoryFragment"
+        android:label="HistoryFragment"
+        tools:layout="@layout/fragment_history" >
+        <!--登陆-->
+        <action
+            android:id="@+id/action_history_fragment_to_login_fragment"
+            app:destination="@+id/login_fragment" />
+        <!--web-->
+        <action
+            android:id="@+id/action_history_fragment_to_web_fragment"
+            app:destination="@+id/web_fragment" /></fragment>
 
 </navigation>

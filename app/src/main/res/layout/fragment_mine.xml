@@ -75,7 +75,7 @@
                     android:id="@+id/tvHistory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/common_default_number"
+                    android:text="@{vm.count}"
                     android:textColor="?attr/theme_color_1"
                     android:textSize="@dimen/text_1"
                     android:textStyle="bold" />
