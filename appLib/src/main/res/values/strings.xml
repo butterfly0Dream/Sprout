@@ -2,4 +2,6 @@
 <resources>
     <string name="tip_no_data">无数据</string>
     <string name="tip_click_refresh">请点击刷新</string>
+    <string name="tip_load_failed">加载数据失败</string>
+    <string name="tip_bad_network">您的网络不给力，点击屏幕可重新加载</string>
 </resources>

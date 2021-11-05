@@ -42,12 +42,18 @@ class TabFragment : LazyVmFragment<FragmentTabBinding>() {
 
     override fun observe() {
         mState.tabData.observe(viewLifecycleOwner, {
+            loadFinished()
             initViewPager(it)
+        })
+        //请求错误
+        mState.errorLiveData.observe(viewLifecycleOwner, {
+            showBadNetworkView{loadData()}
         })
     }
 
     override fun loadData() {
         mState.getTab(mType)
+        showLoading()
     }
 
     private fun initViewPager(tabList: MutableList<TabBean>) {

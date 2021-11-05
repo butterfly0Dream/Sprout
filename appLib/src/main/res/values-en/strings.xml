@@ -2,4 +2,6 @@
 <resources>
     <string name="tip_no_data">No data</string>
     <string name="tip_click_refresh">Please click refresh</string>
+    <string name="tip_load_failed">Failed to load data</string>
+    <string name="tip_bad_network">Your network is not to force, can tap the screen to reload</string>
 </resources>

@@ -43,7 +43,7 @@ class HomeFragment : LazyVmFragment<FragmentHomeBinding>(), BGABanner.Adapter<Im
 
     override fun initView() {
         binding.vm = mState
-        binding.loadingTip.setReloadListener { loadData() }
+//        binding.loadingTip.setReloadListener { loadData() }
         //关闭更新动画
         (binding.rvList.itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false
         binding.smartRefresh.setOnRefreshListener {
@@ -89,14 +89,16 @@ class HomeFragment : LazyVmFragment<FragmentHomeBinding>(), BGABanner.Adapter<Im
         //自动刷新
         mState.getBanner()
         mState.getArticle()
-        binding.loadingTip.loading()
+//        binding.loadingTip.loading()
+        showLoading()
     }
 
     override fun observe() {
         //文章列表
         mState.articleList.observe(viewLifecycleOwner, {
             binding.smartRefresh.visibility = View.VISIBLE
-            binding.loadingTip.dismiss()
+//            binding.loadingTip.dismiss()
+            loadFinished()
             binding.smartRefresh.smartDismiss()
             adapter.submitList(it)
         })
@@ -108,7 +110,8 @@ class HomeFragment : LazyVmFragment<FragmentHomeBinding>(), BGABanner.Adapter<Im
         //请求错误
         mState.errorLiveData.observe(viewLifecycleOwner, {
             binding.smartRefresh.smartDismiss()
-            binding.loadingTip.showInternetError()
+//            binding.loadingTip.showInternetError()
+            showBadNetworkView{loadData()}
         })
     }
 
@@ -124,7 +127,6 @@ class HomeFragment : LazyVmFragment<FragmentHomeBinding>(), BGABanner.Adapter<Im
             }
         }
     }
-
 
     override fun fillBannerItem(
         banner: BGABanner?,

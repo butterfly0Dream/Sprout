@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -13,8 +14,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import com.jsx.applib.BaseApp
+import com.jsx.applib.R
+import com.jsx.applib.common.TAG
+import com.jsx.applib.common.dip2px
 import com.jsx.applib.navigation.NavHostFragment
+import com.jsx.applib.utils.LogUtil
 import com.jsx.applib.utils.ParamUtils
+import com.jsx.applib.view.LoadingView
+import com.jsx.applib.view.lce.DefaultLceImpl
+import com.jsx.applib.view.lce.ILce
 
 /**
  * Author: JackPan
@@ -22,7 +30,29 @@ import com.jsx.applib.utils.ParamUtils
  * Time: 10:18
  * Description:
  */
-abstract class BaseVmFragment<BD : ViewDataBinding> : Fragment() {
+abstract class BaseVmFragment<BD : ViewDataBinding> : Fragment(), ILce {
+
+    /**
+     * Activity中显示加载等待的控件。
+     */
+    private var mLoading: LoadingView? = null
+
+    /**
+     * Activity中由于服务器异常导致加载失败显示的布局。
+     */
+    private var mLoadErrorView: View? = null
+
+    /**
+     * Activity中由于网络异常导致加载失败显示的布局。
+     */
+    private var mBadNetworkView: View? = null
+
+    /**
+     * Activity中当界面上没有任何内容时展示的布局。
+     */
+    private var mNoContentView: View? = null
+    private var mDefaultLce: ILce? = null
+
     /**
      * 开放给外部使用
      */
@@ -63,7 +93,10 @@ abstract class BaseVmFragment<BD : ViewDataBinding> : Fragment() {
             binding = DataBindingUtil.inflate(inflater, it, container, false)
             //将ViewDataBinding生命周期与Fragment绑定
             binding.lifecycleOwner = viewLifecycleOwner
-            return binding.root
+            val frameLayout = FrameLayout(requireContext())
+            frameLayout.addView(binding.root)
+            frameLayout.addView(createLoadingView())
+            return frameLayout
         }
         return super.onCreateView(inflater, container, savedInstanceState)
     }
@@ -174,4 +207,66 @@ abstract class BaseVmFragment<BD : ViewDataBinding> : Fragment() {
      * 获取layout布局
      */
     abstract fun getLayoutId(): Int?
+
+    /**
+     * 在Fragment基类中获取通用的控件，会将传入的View实例原封不动返回。
+     * @param view
+     * Fragment中inflate出来的View实例。
+     * @return  Fragment中inflate出来的View实例原封不动返回。
+     */
+    private fun createLoadingView(): View {
+        val lce = View.inflate(context, R.layout.layout_lce, null)
+        val params = FrameLayout.LayoutParams(
+            FrameLayout.LayoutParams.MATCH_PARENT,
+            FrameLayout.LayoutParams.MATCH_PARENT
+        )
+        params.setMargins(
+            0,
+            dip2px(ctx, 70f),
+            0,
+            0
+        )
+        lce.layoutParams = params
+
+        mLoading = lce.findViewById(R.id.loading)
+        mNoContentView = lce.findViewById(R.id.noContentView)
+        mBadNetworkView = lce.findViewById(R.id.badNetworkView)
+        mLoadErrorView = lce.findViewById(R.id.loadErrorView)
+        if (mLoading == null) {
+            LogUtil.e(TAG, "loading is null")
+        }
+        if (mBadNetworkView == null) {
+            LogUtil.e(TAG, "badNetworkView is null")
+        }
+        if (mLoadErrorView == null) {
+            LogUtil.e(TAG, "loadErrorView is null")
+        }
+        mDefaultLce = DefaultLceImpl(
+            mLoading,
+            mLoadErrorView,
+            mBadNetworkView,
+            mNoContentView
+        )
+        return lce
+    }
+
+    override fun showLoading() {
+        mDefaultLce?.showLoading()
+    }
+
+    override fun loadFinished() {
+        mDefaultLce?.loadFinished()
+    }
+
+    override fun showLoadErrorView(tip: String) {
+        mDefaultLce?.showLoadErrorView(tip)
+    }
+
+    override fun showBadNetworkView(listener: View.OnClickListener) {
+        mDefaultLce?.showBadNetworkView(listener)
+    }
+
+    override fun showNoContentView(tip: String) {
+        mDefaultLce?.showNoContentView(tip)
+    }
 }

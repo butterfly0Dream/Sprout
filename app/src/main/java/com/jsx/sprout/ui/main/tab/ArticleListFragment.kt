@@ -55,6 +55,7 @@ class ArticleListFragment : BaseVmFragment<FragmentArticleBinding>() {
             binding.smartRefresh.smartDismiss()
             //            loadingTip.dismiss()
             mAdapter.submitList(it)
+            loadFinished()
         })
         mState.errorLiveData.observe(viewLifecycleOwner, {
             binding.smartRefresh.smartDismiss()
@@ -64,6 +65,7 @@ class ArticleListFragment : BaseVmFragment<FragmentArticleBinding>() {
 //                loadingTip.setReloadListener {
 //                    articleVM?.getArticleList(type, tabId)
 //                }
+                showBadNetworkView{loadData()}
             }
         })
     }
@@ -112,7 +114,7 @@ class ArticleListFragment : BaseVmFragment<FragmentArticleBinding>() {
 
     override fun loadData() {
         mState.getArticleList(mType, mTabId)
-//        loadingTip.loading()
+        showLoading()
     }
 
     override fun getLayoutId() = R.layout.fragment_article
