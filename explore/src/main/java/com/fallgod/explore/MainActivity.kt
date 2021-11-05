@@ -104,6 +104,7 @@ fun MessageCard(msg: Message) {
         elevation = 5.dp,
         modifier = Modifier
             .padding(all = 10.dp)
+            .fillMaxWidth(fraction = 1f)
             .clickable { // 添加一个新的Modifier拓展方法，让元素具有点击的效果
                 // 点击事件的内容s
                 isExpanded = !isExpanded
