@@ -29,6 +29,7 @@ dependencies {
     api(ThirdParty.baseQuickAdapter)
     api(ThirdParty.magicIndicator)
     api(ThirdParty.labelsView)
+    api(ThirdParty.jinrishici)
 
     testImplementation(Dependencies.junit)
     androidTestImplementation(AndroidTestingLib.testExt)

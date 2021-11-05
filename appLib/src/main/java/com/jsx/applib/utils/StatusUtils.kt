@@ -4,10 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Color
 import android.os.Build
-import android.view.View
-import android.view.ViewGroup
-import android.view.Window
-import android.view.WindowManager
+import android.view.*
 import androidx.annotation.ColorInt
 import androidx.core.view.WindowInsetsControllerCompat
 
@@ -81,59 +78,13 @@ object StatusUtils {
      */
     fun setSystemStatus(activity: Activity, isTransparent: Boolean, isBlack: Boolean) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-//            if (isBlack){
-//                activity.window.insetsController?.show(WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS)
-//            }else{
-//                activity.window.insetsController?.hide(WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS)
+//            if (isTransparent) {
+//                activity.window.statusBarColor = mTransparentColor
 //            }
-            if (isTransparent) {
-                activity.window.statusBarColor = mTransparentColor
-                val contentView = activity.window.findViewById<View>(Window.ID_ANDROID_CONTENT) as ViewGroup
-                val childAt = contentView.getChildAt(0)
-                if (childAt != null) {
-                    childAt.fitsSystemWindows = isTransparent
-                }
-            }
             val wic = WindowInsetsControllerCompat(activity.window, activity.window.decorView)
             wic.isAppearanceLightStatusBars = isBlack
         }else{
             setSystemStatusOld(activity, isTransparent, isBlack)
-        }
-    }
-
-    private fun setSystemStatus30(activity: Activity, isTransparent: Boolean, isBlack: Boolean) {
-        var flag = 0
-        if (isTransparent) {
-            flag = flag or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && isBlack) {
-            // after 23(6.0)
-            flag = flag or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        }
-        activity.window.decorView.systemUiVisibility = flag
-
-        if (isTransparent) {
-            activity.window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-        } else {
-            activity.window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-        }
-        val contentView = activity.window.findViewById<View>(Window.ID_ANDROID_CONTENT) as ViewGroup
-        val childAt = contentView.getChildAt(0)
-        if (childAt != null) {
-            childAt.fitsSystemWindows = isTransparent
-        }
-
-        if (OSUtils.isEMUI3_x()) {
-            if (isTransparent) {
-                activity.window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            } else {
-                activity.window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            }
-            val contentView = activity.window.findViewById<View>(Window.ID_ANDROID_CONTENT) as ViewGroup
-            val childAt = contentView.getChildAt(0)
-            if (childAt != null) {
-                childAt.fitsSystemWindows = !isTransparent
-            }
         }
     }
 

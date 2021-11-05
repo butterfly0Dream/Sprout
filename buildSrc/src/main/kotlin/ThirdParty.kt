@@ -17,6 +17,8 @@ object ThirdParty {
     const val magicIndicator = "com.github.hackware1993:MagicIndicator:1.7.0"
     // 标签列表
     const val labelsView = "com.github.donkingliang:LabelsView:1.6.5"
+    // 今日诗词(官网:https://www.jinrishici.com/)
+    const val jinrishici = "com.jinrishici:android-sdk:1.5"
 }
 
 object Retrofit {
