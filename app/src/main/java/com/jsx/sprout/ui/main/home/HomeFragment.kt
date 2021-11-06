@@ -122,8 +122,7 @@ class HomeFragment : LazyVmFragment<FragmentHomeBinding>(), BGABanner.Adapter<Im
         }
         binding.ivAdd.clickNoRepeat {
             when (it.id) {
-//                R.id.iv_add -> nav().navigate(R.id.action_main_fragment_to_publish_fragment)
-                // TODO: 2021/10/18 发布文章页面
+                R.id.iv_add -> nav().navigate(R.id.action_main_fragment_to_publish_fragment)
             }
         }
     }

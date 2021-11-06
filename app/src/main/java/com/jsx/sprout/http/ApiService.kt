@@ -134,6 +134,13 @@ interface ApiService {
     suspend fun getRank(@Path("pageNum") pageNum: Int): ApiResponse<RankBean>
 
     /**
+     * 分享文章
+     */
+    @POST("/lg/user_article/add/json")
+    suspend fun publishArticle(@Query("title")title: String, @Query("link")link: String)
+            : ApiResponse<Any>
+
+    /**
      * 我分享的文章
      */
     @GET("/user/lg/private_articles/{pageNum}/json")

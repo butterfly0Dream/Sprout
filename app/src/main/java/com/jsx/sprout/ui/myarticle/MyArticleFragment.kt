@@ -52,7 +52,7 @@ class MyArticleFragment : BaseVmFragment<FragmentMyArticleBinding>(), OnChildIte
         }
         binding.ivAdd.clickNoRepeat {
             if (CacheUtil.isLogin()) {
-//                nav().navigate(R.id.action_my_article_fragment_to_publish_fragment)
+                nav().navigate(R.id.action_my_article_fragment_to_publish_fragment)
             } else {
                 toast("请先登录～")
             }
