@@ -51,6 +51,13 @@ object Constants {
     const val ARTICLE_NAME = "name"
 
     /**
+     * 排行页面参数
+     */
+    const val MY_INTEGRAL = "myIntegral"
+    const val MY_RANK = "myRank"
+    const val MY_NAME = "myName"
+
+    /**
      * 语言
      */
     const val LANG_SYS = "system"

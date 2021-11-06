@@ -43,6 +43,14 @@
         <action
             android:id="@+id/action_main_fragment_to_history_fragment"
             app:destination="@+id/history_fragment" />
+        <!--排行榜-->
+        <action
+            android:id="@+id/action_main_fragment_to_rank_fragment"
+            app:destination="@+id/rank_fragment" />
+        <!--我发布的文章-->
+        <action
+            android:id="@+id/action_main_fragment_to_my_article_fragment"
+            app:destination="@+id/my_article_fragment" />
     </fragment>
 
     <fragment
@@ -60,7 +68,7 @@
         android:id="@+id/register_fragment"
         android:name="com.jsx.sprout.ui.register.RegisterFragment"
         android:label="RegisterFragment"
-        tools:layout="@layout/fragment_register"/>
+        tools:layout="@layout/fragment_register" />
 
     <fragment
         android:id="@+id/search_fragment"
@@ -116,7 +124,7 @@
         android:id="@+id/history_fragment"
         android:name="com.jsx.sprout.ui.main.history.HistoryFragment"
         android:label="HistoryFragment"
-        tools:layout="@layout/fragment_history" >
+        tools:layout="@layout/fragment_history">
         <!--登陆-->
         <action
             android:id="@+id/action_history_fragment_to_login_fragment"
@@ -124,6 +132,29 @@
         <!--web-->
         <action
             android:id="@+id/action_history_fragment_to_web_fragment"
-            app:destination="@+id/web_fragment" /></fragment>
+            app:destination="@+id/web_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/rank_fragment"
+        android:name="com.jsx.sprout.ui.rank.RankFragment"
+        android:label="RankFragment"
+        tools:layout="@layout/fragment_rank">
+        <!--web-->
+        <action
+            android:id="@+id/action_rank_fragment_to_web_fragment"
+            app:destination="@+id/web_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/my_article_fragment"
+        android:name="com.jsx.sprout.ui.myarticle.MyArticleFragment"
+        android:label="MyArticleFragment"
+        tools:layout="@layout/fragment_my_article">
+        <!--web-->
+        <action
+            android:id="@+id/action_my_article_fragment_to_web_fragment"
+            app:destination="@+id/web_fragment" />
+    </fragment>
 
 </navigation>

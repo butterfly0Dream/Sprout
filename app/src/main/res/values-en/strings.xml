@@ -8,6 +8,8 @@
     <string name="tab_mine">Mine</string>
     <string name="title_score">积分</string>
     <string name="title_collect">收藏</string>
+    <string name="title_rank">排名</string>
+    <string name="title_my_article">我的文章</string>
 
     <string name="home_search_hint">根据关键字搜索</string>
 
@@ -62,4 +64,6 @@
     <string name="common_no_login">请先登录～</string>
     <string name="common_logout_confirm">确定退出登录？</string>
     <string name="common_logout_done">已退出登录</string>
+    <string name="common_integral_rule">积分规则</string>
+    <string name="common_delete">删除</string>
 </resources>

@@ -55,6 +55,14 @@ open class BaseViewModel: ViewModel() {
         errorLiveData.postValue(error)
     }
 
+    /**
+     * 处理无数据
+     */
+    fun handleEmpty(msg:String = "无数据"){
+        toast(msg)
+        emptyLiveDate.postValue(-1)
+    }
+
     protected fun <T> launch(
         block:  () -> T
         , error:VmError? = null) {

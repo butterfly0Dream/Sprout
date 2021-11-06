@@ -64,20 +64,20 @@ class MineFragment : LazyVmFragment<FragmentMineBinding>() {
         binding.llHistory.clickNoRepeat {
             nav().navigate(R.id.action_main_fragment_to_history_fragment)
         }
-//        binding.llRanking.clickNoRepeat {
-//            if (CacheUtil.isLogin()) {
-//                val integralBean = mState.scoreLiveData?.value
-//                nav().navigate(R.id.action_main_fragment_to_rank_fragment, Bundle().apply {
-//                    integralBean?.apply {
-//                        putInt(Constants.MY_INTEGRAL, coinCount)
-//                        putInt(Constants.MY_RANK, rank)
-//                        putString(Constants.MY_NAME, username)
-//                    }
-//                })
-//            } else {
-//                toast("请先登录")
-//            }
-//        }
+        binding.llRanking.clickNoRepeat {
+            if (CacheUtil.isLogin()) {
+                val integralBean = mState.scoreLiveData?.value
+                nav().navigate(R.id.action_main_fragment_to_rank_fragment, Bundle().apply {
+                    integralBean?.apply {
+                        putInt(Constants.MY_INTEGRAL, coinCount)
+                        putInt(Constants.MY_RANK, rank)
+                        putString(Constants.MY_NAME, username)
+                    }
+                })
+            } else {
+                toast("请先登录")
+            }
+        }
         binding.clIntegral.clickNoRepeat {
             if (CacheUtil.isLogin()) {
                 nav().navigate(R.id.action_main_fragment_to_score_fragment)
@@ -92,13 +92,13 @@ class MineFragment : LazyVmFragment<FragmentMineBinding>() {
                 toast(resources.getString(R.string.common_no_login))
             }
         }
-//        binding.clArticle.clickNoRepeat {
-//            if (CacheUtil.isLogin()) {
-//                nav().navigate(R.id.action_main_fragment_to_my_article_fragment)
-//            } else {
-//                toast("请先登录")
-//            }
-//        }
+        binding.clArticle.clickNoRepeat {
+            if (CacheUtil.isLogin()) {
+                nav().navigate(R.id.action_main_fragment_to_my_article_fragment)
+            } else {
+                toast("请先登录")
+            }
+        }
         binding.clWebsite.clickNoRepeat {
             nav().navigate(R.id.action_main_fragment_to_web_fragment, Bundle().apply {
                 putString(Constants.WEB_URL, UrlConstants.WEBSITE)
