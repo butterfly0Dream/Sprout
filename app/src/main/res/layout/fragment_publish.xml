@@ -110,11 +110,11 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginRight="80dp"
                     android:layout_marginBottom="100dp"
-                    android:background="@drawable/ripple_tag_bg"
                     android:gravity="center"
                     android:text="@string/publish_done"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_1" />
+                    android:textColor="?attr/theme_color_2"
+                    android:textSize="@dimen/text_1"
+                    android:backgroundTint="?attr/main_bg_2"/>
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
