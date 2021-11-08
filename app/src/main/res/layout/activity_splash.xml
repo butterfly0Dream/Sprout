@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashActivity"
-    android:background="?attr/main_bg_1">
+    android:background="?attr/main_bg_1"
+    tools:context=".SplashActivity">
 
     <ImageView
         android:id="@+id/iv_logo"
@@ -31,11 +31,13 @@
 
     <TextView
         android:id="@+id/tv_motto"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:gravity="center"
         android:text="勤学如春耕之苗，不见其长，日有所增"
         android:textColor="@color/green_logo"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

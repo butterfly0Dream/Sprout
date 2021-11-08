@@ -77,7 +77,6 @@
             android:paddingLeft="@dimen/padding"
             android:paddingRight="@dimen/padding"
             android:text="@string/setting_language"
-            app:drawableRightCompat="@drawable/arrow_right"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvNight" />
 
@@ -93,48 +92,57 @@
             app:layout_constraintTop_toTopOf="@+id/tv_language"
             tools:text="中文" />
 
-        <TextView
-            android:id="@+id/tv_system"
-            style="@style/text_1"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="#CACACA"
-            android:gravity="center"
-            android:paddingLeft="@dimen/padding"
-            android:paddingRight="@dimen/padding"
-            android:text="@string/language_system"
-            app:layout_constraintTop_toBottomOf="@+id/tv_language" />
-
-        <TextView
-            android:id="@+id/tv_zh"
-            style="@style/text_1"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="#CACACA"
-            android:gravity="center"
-            android:paddingLeft="@dimen/padding"
-            android:paddingRight="@dimen/padding"
-            android:text="@string/language_zh"
-            app:layout_constraintTop_toBottomOf="@+id/tv_system" />
-
-        <TextView
-            android:id="@+id/tv_en"
-            style="@style/text_1"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="#CACACA"
-            android:gravity="center"
-            android:paddingLeft="@dimen/padding"
-            android:paddingRight="@dimen/padding"
-            android:text="@string/language_en"
-            app:layout_constraintTop_toBottomOf="@+id/tv_zh" />
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/group_language"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/iv_language"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/tv_language"
+            app:layout_constraintTop_toTopOf="@+id/tv_language"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_language"
+            android:src="@drawable/arrow_right"/>
+
+        <LinearLayout
+            android:id="@+id/ll_language"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="vertical"
             android:visibility="@{vm.languageItemVisible ? View.VISIBLE : View.GONE}"
-            app:constraint_referenced_ids="tv_zh, tv_en, tv_system" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_language"
+            tools:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_system"
+                style="@style/text_1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="?attr/main_bg_2"
+                android:gravity="center"
+                android:paddingLeft="@dimen/padding"
+                android:paddingRight="@dimen/padding"
+                android:text="@string/language_system" />
+
+            <TextView
+                android:id="@+id/tv_zh"
+                style="@style/text_1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="?attr/main_bg_2"
+                android:gravity="center"
+                android:paddingLeft="@dimen/padding"
+                android:paddingRight="@dimen/padding"
+                android:text="@string/language_zh" />
+
+            <TextView
+                android:id="@+id/tv_en"
+                style="@style/text_1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="?attr/main_bg_2"
+                android:gravity="center"
+                android:paddingLeft="@dimen/padding"
+                android:paddingRight="@dimen/padding"
+                android:text="@string/language_en" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tvClear"
@@ -147,7 +155,7 @@
             android:paddingRight="@dimen/padding"
             android:text="@string/setting_clear"
             app:drawableRightCompat="@drawable/arrow_right"
-            app:layout_constraintTop_toBottomOf="@+id/tv_en" />
+            app:layout_constraintTop_toBottomOf="@+id/ll_language" />
 
         <TextView
             android:id="@+id/tvClearValue"
