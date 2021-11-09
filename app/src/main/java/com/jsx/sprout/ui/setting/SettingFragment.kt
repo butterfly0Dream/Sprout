@@ -125,8 +125,7 @@ class SettingFragment : BaseVmFragment<FragmentSettingBinding>() {
                 LanguageUtils.changeAppLanguage(BaseApp.getContext(), sysLanguage)
             }
             if (appLanguage != sysLanguage.language) {
-                mState.languageItemVisible.set(false)
-                activity.recreate()
+                recreate()
             }
         }
         binding.tvZh.clickNoRepeat {
@@ -135,8 +134,7 @@ class SettingFragment : BaseVmFragment<FragmentSettingBinding>() {
                 LanguageUtils.changeAppLanguage(activity, Constants.LANG_ZH)
                 LanguageUtils.changeAppLanguage(BaseApp.getContext(), Constants.LANG_ZH)
             }
-            mState.languageItemVisible.set(false)
-            activity.recreate()
+            recreate()
         }
         binding.tvEn.clickNoRepeat {
             SPUtils.setString(SPConstants.LANGUAGE, Constants.LANG_EN)
@@ -155,8 +153,7 @@ class SettingFragment : BaseVmFragment<FragmentSettingBinding>() {
 //                it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 //                startActivity(it)
             }
-            mState.languageItemVisible.set(false)
-            activity.recreate()
+            recreate()
         }
         binding.tvClear.clickNoRepeat {
 
@@ -197,9 +194,14 @@ class SettingFragment : BaseVmFragment<FragmentSettingBinding>() {
         binding.scDayNight.clickNoRepeat {
             it.isSelected = !theme
             SPUtils.setBoolean(SPConstants.DARK_MODE, it.isSelected)
-            // TODO: 2021/11/2  recreate时，activity会闪烁。
-            activity.recreate()
+            recreate()
         }
+    }
+
+    private fun recreate(){
+        mState.languageItemVisible.set(false)
+        // TODO: 2021/11/2  recreate时，activity会闪烁。
+        activity.recreate()
     }
 
     override fun getLayoutId() = R.layout.fragment_setting
