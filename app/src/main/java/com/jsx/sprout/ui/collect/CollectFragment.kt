@@ -93,4 +93,6 @@ class CollectFragment : BaseVmFragment<FragmentCollectBinding>() {
 //        gloding?.loading()
     }
     override fun getLayoutId() = R.layout.fragment_collect
+
+    override fun getLceParentId() = R.id.smart_refresh
 }

@@ -86,6 +86,8 @@ class MyArticleFragment : BaseVmFragment<FragmentMyArticleBinding>(), OnChildIte
 
     override fun getLayoutId() = R.layout.fragment_my_article
 
+    override fun getLceParentId() = R.id.smartRefresh
+
     override fun onItemChildClick(adapter: BaseQuickAdapter<*, *>, view: View, position: Int) {
         this.adapter.data.apply {
             when(view.id){

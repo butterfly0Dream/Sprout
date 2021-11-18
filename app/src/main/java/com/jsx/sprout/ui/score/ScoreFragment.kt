@@ -81,4 +81,6 @@ class ScoreFragment : BaseVmFragment<FragmentScoreBinding>() {
 
 
     override fun getLayoutId() = R.layout.fragment_score
+
+    override fun getLceParentId() = R.id.smart_refresh
 }

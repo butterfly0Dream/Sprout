@@ -161,6 +161,10 @@ abstract class BaseVmFragment<BD : ViewDataBinding> : Fragment(), ILce {
 
     }
 
+    open fun getLceParentId(): Int? {
+        return null
+    }
+
     /**
      * 通过baseApp获取viewModel，跟随application生命周期
      */
@@ -215,6 +219,9 @@ abstract class BaseVmFragment<BD : ViewDataBinding> : Fragment(), ILce {
      * @return  Fragment中inflate出来的View实例原封不动返回。
      */
     private fun createLoadingView(): View {
+        var content: View? = null
+        getLceParentId()?.let { content = binding.root.findViewById(it) }
+
         val lce = View.inflate(context, R.layout.layout_lce, null)
         val params = FrameLayout.LayoutParams(
             FrameLayout.LayoutParams.MATCH_PARENT,
@@ -242,6 +249,7 @@ abstract class BaseVmFragment<BD : ViewDataBinding> : Fragment(), ILce {
             LogUtil.e(TAG, "loadErrorView is null")
         }
         mDefaultLce = DefaultLceImpl(
+            content,
             mLoading,
             mLoadErrorView,
             mBadNetworkView,

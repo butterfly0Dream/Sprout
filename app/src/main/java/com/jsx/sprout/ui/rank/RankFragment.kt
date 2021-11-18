@@ -94,4 +94,6 @@ class RankFragment : BaseVmFragment<FragmentRankBinding>() {
     }
 
     override fun getLayoutId() = R.layout.fragment_rank
+
+    override fun getLceParentId() = R.id.smartRefresh
 }

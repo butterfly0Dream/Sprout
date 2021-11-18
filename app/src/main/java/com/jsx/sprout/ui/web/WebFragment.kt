@@ -101,6 +101,8 @@ class WebFragment : BaseVmFragment<FragmentWebBinding>() {
 
     override fun getLayoutId() = R.layout.fragment_web
 
+    override fun getLceParentId() = R.id.webView
+
     @SuppressLint("SetJavaScriptEnabled")
     private fun initWebView() {
         val webSettings: WebSettings = binding.webView.settings

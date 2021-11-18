@@ -31,6 +31,8 @@ class HomeFragment : LazyVmFragment<FragmentHomeBinding>(), BGABanner.Adapter<Im
 
     override fun getLayoutId() = R.layout.fragment_home
 
+    override fun getLceParentId() = R.id.smart_refresh
+
     override fun initViewModel() {
         mState = getFragmentViewModel(HomeVM::class.java)
         mEvent = getApplicationViewModel(SharedViewModel::class.java)

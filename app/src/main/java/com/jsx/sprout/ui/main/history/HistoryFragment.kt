@@ -96,4 +96,6 @@ class HistoryFragment : LazyVmFragment<FragmentHistoryBinding>()  {
     }
 
     override fun getLayoutId() = R.layout.fragment_history
+
+    override fun getLceParentId() = R.id.smart_refresh
 }

@@ -136,7 +136,7 @@
                 android:id="@+id/loading_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:ballColor="@color/white"
+                app:ballColor="?attr/theme_color_1"
                 app:max_radius="10dp" />
         </RelativeLayout>
 

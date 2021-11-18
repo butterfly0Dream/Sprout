@@ -34,16 +34,15 @@ class CollectAdapter : BaseQuickAdapter<CollectBean.DatasBean, BaseViewHolder>(R
             holder.getView<ImageView>(R.id.iv_collect).apply {
                 setImageResource(R.drawable.collect)
                 clickNoRepeat {
-                    collectClickListener?.onItemChildClick(this@CollectAdapter,it,holder.adapterPosition)
+                    collectClickListener?.onItemChildClick(this@CollectAdapter,it,holder.bindingAdapterPosition)
                 }
             }
             holder.getView<View>(R.id.root).apply {
                 clickNoRepeat {
-                    collectClickListener?.onItemChildClick(this@CollectAdapter,it,holder.adapterPosition)
+                    collectClickListener?.onItemChildClick(this@CollectAdapter,it,holder.bindingAdapterPosition)
                 }
             }
         }
-        TODO("Not yet implemented")
     }
 
     /**

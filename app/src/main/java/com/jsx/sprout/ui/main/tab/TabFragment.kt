@@ -91,4 +91,6 @@ class TabFragment : LazyVmFragment<FragmentTabBinding>() {
     }
 
     override fun getLayoutId() = R.layout.fragment_tab
+
+    override fun getLceParentId() = R.id.vp_article
 }

@@ -42,7 +42,7 @@ class PublishFragment : BaseVmFragment<FragmentPublishBinding>() {
                 toast(getString(R.string.common_check_title))
                 return@clickNoRepeat
             }
-            if (publishVM.articleTitle.get()!!.isEmpty()){
+            if (publishVM.articleLink.get()!!.isEmpty()){
                 toast(getString(R.string.common_check_link))
                 return@clickNoRepeat
             }
