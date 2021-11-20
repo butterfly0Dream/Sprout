@@ -83,7 +83,7 @@ class ArticleAdapter(private val context: Context) : ListAdapter<ArticleListBean
      */
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         holder.itemView.clickNoRepeat {
-            onItemClickListener?.invoke(position, it)
+            onItemClickListener?.invoke(holder.bindingAdapterPosition, it)
             // 插入一条浏览历史数据
             ioScope.launch {
                 val browseHistoryDao = AppDatabase.getInstance().browseHistoryDao()
@@ -95,7 +95,7 @@ class ArticleAdapter(private val context: Context) : ListAdapter<ArticleListBean
         }
         //收藏
         holder.itemView.findViewById<View>(R.id.iv_collect)?.clickNoRepeat {
-            onItemChildClickListener?.invoke(position,it)
+            onItemChildClickListener?.invoke(holder.bindingAdapterPosition,it)
         }
         val binding = if (holder is ArticleViewHolder) {
             DataBindingUtil.getBinding<ItemHomeArticleBinding>(holder.itemView)?.apply {

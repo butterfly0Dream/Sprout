@@ -14,7 +14,7 @@ class RankAdapter(): BaseQuickAdapter<RankBean.DatasBean, BaseViewHolder>(R.layo
     override fun convert(holder: BaseViewHolder, item: RankBean.DatasBean) {
         item.apply {
 
-            when(holder.adapterPosition){
+            when(holder.bindingAdapterPosition){
                 0->{
                     holder.setVisible(R.id.ivRank,true)
                     holder.setImageResource(R.id.ivRank,R.drawable.gold_crown)

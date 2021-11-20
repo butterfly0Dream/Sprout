@@ -5,6 +5,7 @@ import com.jsx.applib.BaseApp
 import com.jsx.applib.utils.LanguageUtils
 import com.jsx.applib.utils.SPUtils
 import com.jsx.sprout.constants.SPConstants
+import com.jsx.sprout.db.AppDatabase
 
 /**
  * Author: JackPan
@@ -25,5 +26,13 @@ class App : BaseApp() {
             }
         }
         super.attachBaseContext(context)
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+    }
+
+    private fun initOnBackground(){
+        AppDatabase.getInstance();
     }
 }
