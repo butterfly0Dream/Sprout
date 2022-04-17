@@ -72,6 +72,7 @@ abstract class BaseLceActivity : BaseVmActivity(), ILce {
             LogUtil.e(TAG, "loadErrorView is null")
         }
         mDefaultLce = DefaultLceImpl(
+            view,
             mLoading,
             mLoadErrorView,
             mBadNetworkView,
